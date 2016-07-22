@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.administrator.elwj.ShopCarActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/headline" />
+
+    </FrameLayout>
+
+    <ListView
+        android:id="@+id/listview_shopcar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/list_item_bg"
+        android:divider="#F8F8F8"
+        android:dividerHeight="10px"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/white">
+        <CheckBox
+            android:id="@+id/toilet_history_allchecked"
+            style="@style/CustomCheckboxTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_marginLeft="5dp" />
+
+        <Button
+            android:id="@+id/bt_shopcar_clear"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/gray"
+            android:text="清空购物车"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/all_set"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="全选"
+            android:visibility="gone"
+            android:gravity="left"
+            android:layout_marginLeft="5dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:paddingLeft="15dp"
+                android:layout_width="wrap_content"
+                android:gravity="right"
+                android:layout_height="wrap_content"
+                android:text="合计：" />
+
+            <TextView
+                android:gravity="left"
+                android:id="@+id/tv_shopcar_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="￥0"
+                android:textColor="@color/orangered" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/bt_shopcar_pay"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/red"
+            android:text="立即结算"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>

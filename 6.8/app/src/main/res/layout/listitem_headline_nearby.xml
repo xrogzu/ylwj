@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:padding="10dp"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_headline_listitem2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        android:scaleType="fitXY"
+        android:src="@mipmap/top_banner_android" />
+
+    <TextView
+        android:id="@+id/tv_headline_listitem2_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/iv_headline_listitem2"
+        android:layout_marginLeft="@dimen/margin_icon_left"
+        android:layout_toRightOf="@id/iv_headline_listitem2"
+        android:text="长江七号"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_headline_listitem2_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_headline_listitem2_name"
+        android:layout_alignTop="@+id/tv_headline_listitem2_name"
+        android:layout_marginLeft="@dimen/margin_icon_left"
+        android:layout_toRightOf="@+id/tv_headline_listitem2_name"
+        android:gravity="center"
+        android:text="5分钟前"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/tv_headline_listitem2_introduce"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_headline_listitem2_name"
+        android:layout_below="@+id/tv_headline_listitem2_name"
+        android:layout_marginTop="@dimen/margin_icon_left"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="随便看啊，随便逛一个"
+        android:textColor="@color/black" />
+
+    <ImageButton
+        android:id="@+id/iv_headline_listitem2_commend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_headline_listitem2_name"
+        android:layout_below="@+id/tv_headline_listitem2_introduce"
+        android:layout_marginTop="@dimen/margin_icon_left"
+        android:background="@mipmap/toutiao_icon_comment" />
+
+    <TextView
+        android:id="@+id/tv_headline_listitem2_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_icon_left5"
+        android:layout_alignTop="@+id/iv_headline_listitem2_commend"
+        android:layout_toRightOf="@+id/iv_headline_listitem2_commend"
+        android:text="35"
+        android:textSize="10sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_headline_listitem2_from"
+        android:layout_alignTop="@+id/tv_headline_listitem2_num"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/margin_icon_left"
+        android:textSize="11sp"
+        android:text="来自身边"/>
+</RelativeLayout>

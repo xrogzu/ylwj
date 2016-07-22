@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center_vertical">
+
+    <TextView
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="所属社区:"
+        android:textColor="@color/black" />
+    <LinearLayout
+        android:id="@+id/bigstage_activity_community"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/margin_icon_left"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/tv_community_choose"
+            android:layout_width="wrap_content"
+            android:textColor="@color/activity_tvcolor"
+            android:text="天福苑小区"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</RelativeLayout>

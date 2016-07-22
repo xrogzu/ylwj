@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="card_view_margin_bottom">0dp</dimen>
+    <dimen name="card_view_margin_besides">2dp</dimen>
+    <dimen name="card_view_hight">2dp</dimen>
+    <dimen name="card_view_left">7dp</dimen>
+    <dimen name="card_view_distance">5dp</dimen>
+</resources>

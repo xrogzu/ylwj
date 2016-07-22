@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:id="@+id/rl_select_address_item"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_select_address_item_rec_person"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:layout_alignParentLeft="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tv_select_address_item_mobile"
+        android:textColor="@color/black"
+        android:textSize ="16sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tv_select_address_item_cur_default"
+        android:layout_alignBottom="@id/tv_select_address_item_rec_person"
+        android:layout_marginBottom="2dp"
+        android:text="默认地址"
+        android:visibility="gone"
+        android:textColor="@color/red"
+        android:textSize="10sp"
+        android:layout_toRightOf="@id/tv_select_address_item_rec_person"
+        android:layout_marginLeft="3dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_select_address_item_addr"
+        android:layout_alignParentLeft="true"
+        android:textSize="13sp"
+        android:layout_below="@id/tv_select_address_item_rec_person"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/iv_select_address_item"
+        android:src="@mipmap/marker_09"
+        android:background="@null"
+        android:visibility="gone"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

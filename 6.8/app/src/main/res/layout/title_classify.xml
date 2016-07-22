@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/title"
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
+
+    <RadioGroup
+        android:id="@+id/rg_classify"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_shop_mencloth"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="男装"
+            android:textColor="@color/rg_finacial_selector" />
+
+        <RadioButton
+            android:id="@+id/rb_shop_womencloth"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="女装"
+            android:textColor="@color/rg_finacial_selector" />
+
+        <RadioButton
+            android:id="@+id/rb_shop_mom"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="母婴"
+            android:textColor="@color/rg_finacial_selector" />
+
+        <RadioButton
+            android:id="@+id/rb_shop_bag"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="箱包"
+            android:textColor="@color/rg_finacial_selector" />
+
+        <RadioButton
+            android:id="@+id/rb_shop_shoes"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="鞋帽"
+            android:textColor="@color/rg_finacial_selector" />
+    </RadioGroup>
+
+
+</LinearLayout>

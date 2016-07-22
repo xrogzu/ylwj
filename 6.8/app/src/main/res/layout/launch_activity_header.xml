@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="5dp"
+              android:background="@color/white"
+              android:gravity="center_vertical"
+              android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="活动类型:"
+        android:textColor="@color/black" />
+
+    <RadioGroup
+        android:id="@+id/rg_activity_type"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_normal"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_activity_type_normal"
+            android:button="@null"
+            android:gravity="center"
+            android:checked="true"
+            android:textColor="@color/rg_activity_type"
+            android:padding="10dp"
+            android:text="一般" />
+
+        <RadioButton
+            android:visibility="gone"
+            android:id="@+id/rb_vote"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_activity_type_vote"
+            android:button="@null"
+            android:gravity="center"
+            android:textColor="@color/rg_activity_type"
+            android:padding="10dp"
+            android:text="投票"
+            android:layout_marginLeft="-1dp"/>
+
+        <RadioButton
+            android:visibility="gone"
+            android:id="@+id/rb_public"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_activity_type_public"
+            android:textColor="@color/rg_activity_type"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="公共"
+            android:layout_marginLeft="-1dp"/>
+    </RadioGroup>
+</LinearLayout>

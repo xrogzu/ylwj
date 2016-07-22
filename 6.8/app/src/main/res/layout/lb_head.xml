@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/title"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:id="@+id/lb_head_linearlayout"
+    android:visibility="gone"
+    >
+
+    <RadioGroup
+        android:id="@+id/lbrg_classify"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/lbrb_shop_mencloth"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="居家礼包"
+            android:textColor="@color/rg_finacial_selector" />
+
+        <RadioButton
+            android:id="@+id/lbrb_shop_womencloth"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="卫浴礼包"
+            android:textColor="@color/rg_finacial_selector" />
+
+        <RadioButton
+            android:id="@+id/lbrb_shop_mom"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="厨房礼包"
+            android:textColor="@color/rg_finacial_selector" />
+
+        <RadioButton
+            android:id="@+id/lbrb_shop_bag"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="母婴礼包"
+            android:textColor="@color/rg_finacial_selector" />
+
+
+    </RadioGroup>
+
+
+</LinearLayout>

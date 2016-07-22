@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.administrator.elwj.Bigstage_DetailsViewpager">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/grey"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/reback" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:text="1/5"
+            android:gravity="center"
+            android:id="@+id/tv_viewpagerdetails_num"
+            android:layout_height="match_parent" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/delete"
+            android:visibility="gone"
+            android:id="@+id/ib_delete"
+            />
+    </LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/viewPager"
+        android:layout_weight="1"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="60dp"
+        android:padding="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:id="@+id/bt_save"
+            android:background="@drawable/bg_invite"
+            android:text="保存"/>
+        <Button
+            android:layout_width="60dp"
+            android:id="@+id/bt_share"
+            android:layout_marginLeft="@dimen/margin_icon_left"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_invite"
+            android:text="分享"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="right|center_vertical">
+            <LinearLayout
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/margin_icon_left"
+                android:background="@drawable/bg_invite"
+                android:gravity="center"
+                android:clickable="true"
+                android:id="@+id/linear_praise"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_love"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_likeNum"
+                    android:text="57"
+                    android:layout_marginLeft="@dimen/margin_icon_left5"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

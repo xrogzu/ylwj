@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_people"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:clickable="true"
+    android:background="@drawable/bg_round_rectangle_white_big"
+    android:padding="@dimen/margin_icon_left">
+
+    <ImageView
+        android:id="@+id/iv_title"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@mipmap/top_banner_android" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_name"
+        android:layout_alignTop="@+id/iv_title"
+        android:layout_toRightOf="@+id/iv_title"
+        android:text="周迅"
+        android:textColor="@color/black"
+        android:layout_marginLeft="@dimen/margin_icon_left"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:layout_alignTop="@+id/tv_name"
+        android:layout_alignBottom="@+id/tv_name"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/tv_name"
+        android:textColor="@color/orange"
+        android:layout_marginLeft="@dimen/margin_icon_left"
+        android:text="[已关注]"
+        android:visibility="invisible"
+        android:id="@+id/tv_had_attention" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_attention"
+        android:layout_alignLeft="@+id/tv_name"
+        android:layout_below="@+id/tv_name"
+        android:layout_marginTop="@dimen/margin_icon_left5"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:text="新鲜事：0"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_fans"
+        android:layout_toRightOf="@+id/tv_attention"
+        android:layout_marginLeft="@dimen/margin_icon_left"
+        android:layout_below="@+id/tv_name"
+        android:layout_marginTop="@dimen/margin_icon_left5"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:text="粉丝：0"/>
+
+
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iv_attention"
+            android:src="@mipmap/cancel_attention"/>
+
+</RelativeLayout>

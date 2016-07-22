@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/title"
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
+
+    <RadioGroup
+        android:id="@+id/rg_classify_pay"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_shop_mencloth_pay"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="未付款"
+            android:textColor="@color/rg_finacial_selector" />
+
+        <RadioButton
+            android:id="@+id/rb_shop_womencloth_pay"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="已付款"
+            android:textColor="@color/rg_finacial_selector" />
+
+        <RadioButton
+            android:id="@+id/rb_shop_mom_pay"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="全部消费"
+            android:textColor="@color/rg_finacial_selector" />
+
+
+    </RadioGroup>
+
+
+</LinearLayout>

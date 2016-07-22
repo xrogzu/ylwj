@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    tools:context="com.administrator.elwj.MyAddressActivity">
+
+    <include layout="@layout/headline"
+        android:id="@+id/my_address_headline"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="40dp">
+
+
+        <TextView
+            android:id="@+id/tv_myaddress_righttop"
+            android:gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:textColor="@color/red"
+            android:textSize="16sp"
+            android:clickable="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <View
+        android:id="@+id/yellow_view"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="#FFFEBA00"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_below="@+id/my_address_headline"/>
+
+    <LinearLayout
+        android:id="@+id/my_address_fragment_container"
+        android:layout_below="@+id/yellow_view"
+        android:background="@color/grey"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+
+</RelativeLayout>

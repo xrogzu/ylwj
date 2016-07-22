@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/iv_nearby_comment_item_head"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/top_banner_android"/>
+
+    <TextView
+        android:id="@+id/tv_nearby_comment_item_nickname"
+        android:layout_toRightOf="@+id/iv_nearby_comment_item_head"
+        android:text="功夫熊猫"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_nearby_comment_item_time"
+        android:layout_toRightOf="@+id/iv_nearby_comment_item_head"
+        android:layout_below="@+id/tv_nearby_comment_item_nickname"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="10dp"
+        android:text="2-18 11:06"
+        android:textColor="@color/gray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_nearby_comment_item_commet"
+        android:layout_toRightOf="@+id/iv_nearby_comment_item_head"
+        android:layout_below="@+id/iv_nearby_comment_item_head"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="6dp"
+        android:text="特别好看，很赞啊！"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <CheckBox
+        android:layout_alignParentRight="true"
+        android:button="@null"
+        android:visibility="gone"
+        android:drawableLeft="@drawable/bg_checkbox_like"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:text="喜欢"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/nearby_commet_item_like"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/ib_nearby_commet_item_like"
+            android:src="@mipmap/shenbian_icon_06"
+            android:background="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_nearby_comment_item_likecount"
+            android:layout_marginLeft="5dp"
+            android:text="20"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>

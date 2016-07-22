@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.administrator.elwj.MyAttentionActivity">
+
+    <include layout="@layout/title_viewpager" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="#FFFEBA00"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+
+    <RadioGroup
+        android:id="@+id/rg_my"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:id="@+id/rb_my_attention_person"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="我关注的人"
+            android:textColor="@color/rg_finacial_selector" />
+
+        <RadioButton
+            android:visibility="gone"
+            android:id="@+id/rb_my_attention_goods"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:gravity="center"
+            android:text="关注的商品"
+            android:textColor="@color/rg_finacial_selector" />
+
+        <RadioButton
+            android:id="@+id/rb_my_attention_activity"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@null"
+            android:gravity="center"
+            android:text="关注的活动"
+            android:textColor="@color/rg_finacial_selector" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_bottom_line"
+        android:layout_width="10dp"
+        android:layout_height="2dp"
+        android:background="#FF5460" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager_myattention"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

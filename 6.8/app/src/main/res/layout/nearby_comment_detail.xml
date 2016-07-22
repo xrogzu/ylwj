@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <include android:id="@+id/nearby_comment_detail_title"
+        layout="@layout/headline"/>
+
+    <com.library.listview.XListView
+        android:id="@+id/listview_nearby_commet_detail"
+        android:layout_below="@+id/nearby_comment_detail_title"
+        android:layout_above="@+id/nearby_comment_detail_tail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <include
+        android:id="@+id/nearby_comment_detail_tail"
+        layout="@layout/nearbyitem_commet_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

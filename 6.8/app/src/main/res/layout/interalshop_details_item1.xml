@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+    <TextView
+        android:id="@+id/tv_shopdetails_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginTop="@dimen/margin_icon_left5"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/orangered"
+        android:text="￥1200.00"
+       />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_shopdetails_freepostage"
+        android:layout_alignTop="@+id/tv_shopdetails_price"
+        android:layout_toRightOf="@+id/tv_shopdetails_price"
+        android:textColor="@color/white"
+        android:background="@color/orangered"
+        android:textSize="10sp"
+        android:text="包邮"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="@dimen/margin_icon_left5"
+        android:visibility="invisible"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:id="@+id/tv_shopdetails_markprice"
+        android:layout_toRightOf="@+id/tv_shopdetails_freepostage"
+        android:layout_marginLeft="@dimen/margin_icon_left20"
+        android:text="市场价：1200元"
+        android:layout_alignBottom="@+id/tv_shopdetails_price"/>
+    <TextView
+        android:id="@+id/tv_divider"
+        android:layout_width="1px"
+        android:layout_height="10dp"
+        android:background="@color/darkgrey"
+        android:layout_gravity="center"
+        android:layout_toRightOf="@+id/tv_shopdetails_markprice"
+        android:layout_alignBottom="@+id/tv_shopdetails_markprice"
+        android:layout_marginLeft="7dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_toRightOf="@+id/tv_shopdetails_markprice"
+        android:layout_alignBottom="@+id/tv_shopdetails_markprice"
+        android:id="@+id/linear_shopdetails_freepostage"
+        android:layout_marginLeft="12dp"
+    >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="已售200件"
+            android:textSize="10sp"
+            android:id="@+id/tv_shopdetails_linear_hadsold"
+
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+
+
+            />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_weight="1"
+            android:visibility="gone">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/praise"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:gravity="right"
+                android:layout_marginRight="@dimen/margin_icon_left20"
+                android:text="50"
+                android:textSize="10sp"
+                android:id="@+id/tv_shopdetails_linear_praise"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:gravity="center"
+        android:background="#F8F8F8"
+        android:layout_below="@+id/tv_shopdetails_price"
+        android:id="@+id/text1"
+        android:layout_marginTop="15dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:id="@+id/linear_shopdetails"
+        android:layout_below="@+id/text1"
+        android:gravity="center"
+        android:visibility="gone"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@mipmap/market_icon_04"
+            android:layout_marginRight="45dp"
+
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@mipmap/market_icon_05"
+            android:layout_marginRight="45dp"
+
+          />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@mipmap/market_icon_06"
+          />
+
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:gravity="center"
+        android:background="#F8F8F8"
+        android:layout_below="@+id/linear_shopdetails"
+        android:id="@+id/text2"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_below="@+id/text2"
+        android:id="@+id/song"
+        >
+
+        <TextView
+            android:layout_width="15dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="送"
+            android:textSize="10sp"
+            android:background="@color/orangered"
+            android:id="@+id/tv_shopdetails_giveintegral"
+            android:layout_marginLeft="5dp"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_shopdetails_giveintegralnum"
+            android:text="200"
+            android:textColor="@color/orangered"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:layout_marginLeft="@dimen/margin_icon_left5"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="积分"
+            android:gravity="center"
+            android:textSize="10sp"
+            />
+    </LinearLayout>
+
+
+
+</RelativeLayout>

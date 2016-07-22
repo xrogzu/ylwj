@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/view_yuan"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="65dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/iv_recommend"
+        android:scaleType="fitXY"
+        android:id="@+id/iv_product"
+        android:layout_margin="10dp"/>
+    <TextView
+
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_toRightOf="@+id/iv_product"
+        android:textColor="#000"
+        android:text="监管互联网金融可借鉴负面清单制"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/iv_product"
+        />
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/tv_product_comment"-->
+
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:textColor="#C3C4C6"-->
+        <!--android:textSize="13sp"-->
+        <!--android:text="12"-->
+        <!--android:layout_alignTop="@+id/iv_product"/>-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_product_createtime"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:layout_marginRight="10dp"
+        android:textColor="#C3C4C6"
+        android:textSize="13sp"
+        android:text="12"/>
+
+
+</RelativeLayout>

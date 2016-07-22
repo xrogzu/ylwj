@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffe8e8e8"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="5px"
+        android:background="#E8E8E8"/>
+    <com.library.listview.XListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="12px"
+        android:divider="#ffe8e8e8"
+        android:id="@+id/list_financalnon"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"/>
+
+</RelativeLayout>

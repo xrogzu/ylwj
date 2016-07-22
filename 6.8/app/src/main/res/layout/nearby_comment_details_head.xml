@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <include
+        android:id="@+id/nearby_comment_detail_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/nearbyitem_head" />
+
+    <com.administrator.view.MyGridView
+        android:id="@+id/comment_gallery"
+        android:numColumns="3"
+        android:verticalSpacing="5dp"
+        android:background="@color/white"
+        android:layout_below="@id/nearby_comment_detail_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        >
+    </com.administrator.view.MyGridView>
+
+    <RelativeLayout
+        android:id="@+id/nearby_comment_detail_tips"
+        android:layout_below="@+id/comment_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="12dp"
+        android:paddingTop="12dp">
+
+        <TextView
+            android:layout_width="3dp"
+            android:layout_height="18dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@color/red" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="8dp"
+            android:text="全部评论"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/nearby_commet_detail_likecount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="8dp"
+            android:text="喜欢 20" />
+    </RelativeLayout>
+
+</RelativeLayout>

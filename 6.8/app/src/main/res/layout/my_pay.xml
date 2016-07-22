@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:id="@+id/linear_shoplis_pay"
+    android:layout_height="match_parent">
+    <include layout="@layout/title_integralshop"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/darkgrey"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@mipmap/jingzhi_title" />
+    <include layout="@layout/title_pay"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/darkgrey"/>
+    <TextView
+        android:id="@+id/tv_bottom_line1_pay"
+        android:layout_width="10dp"
+        android:layout_height="2dp"
+        android:background="#FF5460" />
+
+
+    <android.support.v4.view.ViewPager
+        android:background="#ffe8e8e8"
+        android:id="@+id/viewpager_internalshop_internal_pay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+</LinearLayout>

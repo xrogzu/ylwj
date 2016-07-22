@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">PullToRefreshListView</string>
+	<string name="pull_to_refresh">下拉刷新</string>
+    <string name="pull_to_load_more">查看更多</string>
+    <string name="welcome_loading">正在加载信息...</string>
+</resources>

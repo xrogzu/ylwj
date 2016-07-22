@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gray_line_bg">#c8c8c8</color>
+    <dimen name="progress_bar_size">25dp</dimen>
+    <string name="app_name">PullToRefreshListView</string>
+    <string name="pull_to_load_more">查看更多</string>
+    <string name="pull_to_refresh">下拉刷新</string>
+    <string name="welcome_loading">正在加载信息...</string>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+</resources>

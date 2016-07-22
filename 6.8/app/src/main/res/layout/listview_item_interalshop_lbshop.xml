@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+    <RelativeLayout
+        android:clickable="true"
+        android:background="@color/white"
+        android:id="@+id/lbinteralshop_list_left"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="@dimen/dividerHeight"
+        android:layout_marginRight="@dimen/dividerHeight"
+        android:layout_height="260dp"
+
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/lbiv_interal_left"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/text_list_inetralshop" />
+        <TextView
+            android:id="@+id/lbtv_interal_nameleft"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lbiv_interal_left"
+            android:text="乐町冬装新款长款轻薄羽绒服饰"
+            android:lines="2"
+            android:ellipsize="end"
+            android:gravity="center_vertical"/>
+        <TextView
+            android:text="￥1200.00"
+            android:id="@+id/lbtv_interal_priceleft"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/lbtv_interal_nameleft"
+            android:textColor="@color/colorAccent"
+            android:layout_height="wrap_content"
+           />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/lbtv_interal_priceleft"
+            android:text="市场价：1200元"
+            android:gravity="center_vertical"
+            android:layout_alignTop="@+id/lbtv_interal_priceleft"
+            android:layout_toRightOf="@+id/lbtv_interal_priceleft"
+            android:layout_marginLeft="20dp"
+            android:textSize="10dp"
+            android:id="@+id/lbtv_interal_market_priceleft"
+            android:visibility="gone"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已售200件"
+            android:gravity="center_vertical"
+
+            android:textSize="10dp"
+            android:id="@+id/lbtv_interal_havesold_left"
+            android:layout_alignBottom="@+id/lbtv_interal_priceleft"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+         />
+    </RelativeLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1"
+       >
+        <RelativeLayout
+            android:clickable="true"
+            android:background="@color/white"
+            android:id="@+id/lbinteralshop_list_right"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/dividerHeight"
+            android:layout_marginRight="@dimen/dividerHeight"
+            android:layout_height="260dp"
+            android:layout_weight="1"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/lbiv_interal_right"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/text_list_inetralshop" />
+            <TextView
+                android:id="@+id/lbtv_interal_nameright"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbiv_interal_right"
+                android:text="乐町冬装新款长款轻薄羽绒服饰"
+                android:lines="2"
+                android:ellipsize="end"
+                android:gravity="center_vertical"/>
+            <TextView
+                android:text="￥1200.00"
+                android:id="@+id/lbtv_interal_priceright"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/lbtv_interal_nameright"
+
+                android:textColor="@color/colorAccent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/lbtv_interal_priceright"
+                android:text="市场价：1200元"
+                android:gravity="center_vertical"
+                android:layout_alignTop="@+id/lbtv_interal_priceright"
+                android:layout_toRightOf="@+id/lbtv_interal_priceright"
+                android:layout_marginLeft="20dp"
+                android:textSize="10dp"
+                android:id="@+id/lbtv_interal_market_priceright"
+                android:visibility="gone"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已售200件"
+                android:gravity="center_vertical"
+                android:textSize="10dp"
+                android:id="@+id/lbtv_interal_havesold_right"
+                android:layout_alignBottom="@+id/lbtv_interal_priceright"
+               android:layout_alignParentRight="true"
+               android:layout_marginRight="20dp"/>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

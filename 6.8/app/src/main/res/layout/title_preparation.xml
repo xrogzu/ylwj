@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/title"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:id="@+id/rg_title_preparation"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:background="@color/white"
+            android:id="@+id/rb_title_comprehensive"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:clickable="true"
+            android:text="@string/comprehensive"
+            android:textColor="@color/colorAccent" />
+
+        <TextView
+            android:clickable="true"
+            android:background="@color/white"
+            android:id="@+id/rb_title_salesvolume"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/salesvolume"
+            android:textColor="@color/textgrey" />
+
+        <LinearLayout
+            android:background="@color/white"
+            android:id="@+id/rb_title_price"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:clickable="true"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textgrey"
+                android:id="@+id/tv_price"
+                android:text="价格"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/iv_price"
+                android:layout_marginLeft="@dimen/margin_icon_left5"
+                android:src="@mipmap/jiantou1"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:gravity="right|center_vertical"
+        android:id="@+id/li_title_preparation"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_title_preparation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/preparation" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_icon_left5"
+            android:background="@mipmap/hopper" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="1px"
+        android:layout_height="30dp"
+        android:background="@color/darkgrey" />
+
+    <!--<LinearLayout-->
+        <!--android:clickable="true"-->
+        <!--android:id="@+id/li_title_mcqbox"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<ImageButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@mipmap/mcq_box" />-->
+
+        <!--<ImageButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginRight="@dimen/margin_icon_left5"-->
+            <!--android:background="@mipmap/drop_grey" />-->
+    <!--</LinearLayout>-->
+</LinearLayout>

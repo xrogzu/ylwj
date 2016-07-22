@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_headline_item11"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/white"
+        >
+        <com.administrator.myviews.NumImageView
+            android:id="@+id/iv_headline_item11"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:padding="10dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/toutiao_icon_01" />
+
+        <TextView
+            android:id="@+id/tv_headline_item1_name1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_icon_left"
+            android:layout_marginLeft="@dimen/margin_icon_left"
+            android:layout_toRightOf="@+id/iv_headline_item11"
+            android:text="新的关注"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_headline_item1_introduce1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/iv_headline_item11"
+            android:layout_marginBottom="@dimen/margin_icon_left"
+            android:layout_alignLeft="@id/tv_headline_item1_name1"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="长江七号，宇宙飞船等两人新关注了你" />
+
+        <TextView
+            android:id="@+id/tv_headline_item1_time1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/tv_headline_item1_name1"
+            android:layout_marginRight="@dimen/margin_icon_left"
+            android:text="11:15" />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15px"
+        android:background="#F8F8F8"/>
+    <RelativeLayout
+        android:id="@+id/rl_headline_item12"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/white"
+        >
+
+        <com.administrator.myviews.NumImageView
+            android:id="@+id/iv_headline_item12"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/toutiao_icon_02" />
+
+        <TextView
+            android:id="@+id/tv_headline_item1_name2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_icon_left"
+            android:layout_marginLeft="@dimen/margin_icon_left"
+            android:layout_toRightOf="@+id/iv_headline_item12"
+            android:text="新的关注"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_headline_item1_introduce2"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_icon_left"
+            android:layout_alignBottom="@+id/iv_headline_item12"
+            android:layout_alignLeft="@id/tv_headline_item1_name2"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="长江七号，宇宙飞船等两人新关注了你" />
+
+        <TextView
+            android:id="@+id/tv_headline_item1_time2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/tv_headline_item1_name2"
+            android:layout_marginRight="@dimen/margin_icon_left"
+            android:text="11:15" />
+    </RelativeLayout>
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:background="@color/white"-->
+        <!--&gt;-->
+
+        <!--<com.administrator.myviews.NumImageView-->
+            <!--android:id="@+id/iv_headline_item13"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:padding="10dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:scaleType="fitXY"-->
+            <!--android:src="@mipmap/toutiao_icon_03" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_headline_item1_name3"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignTop="@+id/iv_headline_item13"-->
+            <!--android:layout_marginLeft="@dimen/margin_icon_left"-->
+            <!--android:layout_toRightOf="@+id/iv_headline_item13"-->
+            <!--android:text="新的关注"-->
+            <!--android:layout_marginTop="@dimen/margin_icon_left"-->
+            <!--android:textColor="@color/black" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_headline_item1_introduce3"-->
+            <!--android:layout_width="200dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@+id/iv_headline_item13"-->
+            <!--android:layout_alignLeft="@id/tv_headline_item1_name3"-->
+            <!--android:ellipsize="end"-->
+            <!--android:singleLine="true"-->
+            <!--android:layout_marginBottom="@dimen/margin_icon_left"-->
+            <!--android:text="长江七号，宇宙飞船等两人新关注了你" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_headline_item1_time3"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_alignTop="@+id/tv_headline_item1_name3"-->
+            <!--android:layout_marginRight="@dimen/margin_icon_left"-->
+            <!--android:text="11:15" />-->
+    <!--</RelativeLayout>-->
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1px"-->
+        <!--android:background="@color/black"/>-->
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:background="@color/white"-->
+        <!--&gt;-->
+
+        <!--<com.administrator.myviews.NumImageView-->
+            <!--android:id="@+id/iv_headline_item14"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:padding="10dp"-->
+            <!--android:scaleType="fitXY"-->
+            <!--android:src="@mipmap/toutiao_icon_04" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_headline_item1_name4"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignTop="@+id/iv_headline_item14"-->
+            <!--android:layout_marginLeft="@dimen/margin_icon_left"-->
+            <!--android:layout_toRightOf="@+id/iv_headline_item14"-->
+            <!--android:layout_marginTop="@dimen/margin_icon_left"-->
+            <!--android:text="新的关注"-->
+            <!--android:textColor="@color/black" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_headline_item1_introduce4"-->
+            <!--android:layout_width="200dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@+id/iv_headline_item14"-->
+            <!--android:layout_alignLeft="@id/tv_headline_item1_name4"-->
+            <!--android:ellipsize="end"-->
+            <!--android:singleLine="true"-->
+            <!--android:layout_marginBottom="@dimen/margin_icon_left"-->
+            <!--android:text="长江七号，宇宙飞船等两人新关注了你" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_headline_item1_time4"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_alignTop="@+id/tv_headline_item1_name4"-->
+            <!--android:layout_marginRight="@dimen/margin_icon_left"-->
+            <!--android:text="11:15" />-->
+    <!--</RelativeLayout>-->
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1px"-->
+        <!--android:background="@color/black"/>-->
+
+
+</LinearLayout>

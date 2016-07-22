@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_launch_activity" />
+
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--</LinearLayout>-->
+    <!--<TextView-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:id="@+id/tv_all"-->
+    <!--android:background="@mipmap/tab01"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content" />-->
+    <!--<TextView-->
+    <!--android:layout_toRightOf="@+id/tv_all"-->
+    <!--android:background="@mipmap/tab02"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content" />-->
+
+
+    <!--</RelativeLayout>-->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#ffd5d5d5"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp">
+            <View
+                android:background="#ffff7f4e"
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:layout_weight="1"/>
+            <View
+                android:background="#ffffb900"
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:layout_weight="1"/>
+            <View
+                android:layout_width="0dp"
+                android:background="#ff98c73d"
+                android:layout_height="5dp"
+                android:layout_weight="1"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:background="#ff53b0d2"
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+
+    <!--<RadioButton-->
+    <!--android:id="@+id/rb_bigstage_choose"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@color/white"-->
+    <!--android:button="@null"-->
+    <!--android:gravity="center"-->
+    <!--android:text="评选"-->
+    <!--android:textColor="@color/rg_finacial_selector" />-->
+
+    <!--<RadioButton-->
+    <!--android:id="@+id/rb_bigstage_photo"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@color/white"-->
+    <!--android:button="@null"-->
+    <!--android:gravity="center"-->
+    <!--android:text="照片墙"-->
+    <!--android:textColor="@color/rg_finacial_selector" />-->
+    <!--</RadioGroup>-->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal">
+        <RadioGroup
+            android:id="@+id/rg_bigstage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#ffd5d5d5"
+            >
+            <RadioButton
+                android:id="@+id/rb_all"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@mipmap/bigstage1"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="精彩推荐"
+                android:textColor="@color/white"
+                />
+
+            <RadioButton
+                android:id="@+id/rb_community"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@mipmap/bigstage2"
+                android:button="@null"
+                android:gravity="center"
+                android:text="我的社区"
+                android:textColor="@color/white" />
+
+            <RadioButton
+                android:id="@+id/rb_rate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@mipmap/bigstage3"
+                android:button="@null"
+                android:gravity="center"
+                android:text="排行"
+                android:textColor="@color/white" />
+
+            <RadioButton
+                android:id="@+id/rb_publish"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@mipmap/bigtage4"
+                android:button="@null"
+                android:gravity="center"
+                android:text="发布"
+                android:textColor="@color/white" />
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/tv_bottom_line"
+            android:layout_width="10dp"
+            android:layout_height="4px"
+            android:background="#ffbb3637"
+            android:layout_alignBottom="@+id/rg_bigstage"/>
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager_bigstage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

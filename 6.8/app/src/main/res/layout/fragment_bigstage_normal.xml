@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <View
+        android:background="@color/gray_line_bg"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <include layout="@layout/bigstage_activity_name_layout"/>
+
+    <View
+        android:background="@color/gray_line_bg"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <include layout="@layout/bigstage_activity_community_layout"/>
+
+    <View
+        android:background="@color/gray_line_bg"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <include layout="@layout/bigstage_activity_time_layout"/>
+
+    <View
+        android:background="@color/gray_line_bg"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <include layout="@layout/bigstage_activity_place_layout"/>
+
+    <View
+        android:background="@color/gray_line_bg"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <include
+        android:id="@+id/bigstage_activity_people_layout"
+        layout="@layout/bigstage_activity_people_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
+
+    <View
+        android:id="@+id/line_people"
+        android:background="@color/gray_line_bg"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <include
+        android:id="@+id/bigstage_activity_signtime_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/bigstage_activity_signtime_layout"/>
+
+    <View
+        android:id="@+id/line_signtime"
+        android:background="@color/gray_line_bg"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <include layout="@layout/bigstage_activity_content_layout"/>
+
+</LinearLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="133dp"
+        android:layout_marginBottom="@dimen/card_view_distance"
+        android:layout_marginRight="@dimen/card_view_left"
+        android:layout_marginLeft="@dimen/card_view_left"
+        card_view:cardPreventCornerOverlap="false"
+        card_view:cardCornerRadius="5dp"
+        card_view:cardElevation="@dimen/card_view_hight"
+        card_view:cardMaxElevation="@dimen/card_view_hight"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <com.administrator.view.RoundImageView
+                android:id="@+id/iv_life_item"
+                android:scaleType="fitXY"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                />
+            <TextView
+                android:id="@+id/tv_life_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="#aa000000"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_margin="2dp"
+
+                />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

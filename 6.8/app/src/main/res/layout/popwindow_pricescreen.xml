@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin_icon_left"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_poppricescreen1"
+            android:textSize="17sp"
+            android:text="￥ 0 - 200"/>
+        <TextView
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_poppricescreen2"
+            android:layout_marginLeft="@dimen/margin_icon_left20"
+            android:textSize="17sp"
+            android:text="￥ 300 - 500"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin_icon_left"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_poppricescreen3"
+            android:textSize="17sp"
+            android:text="￥ 600 - 1000"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_poppricescreen4"
+            android:layout_marginLeft="@dimen/margin_icon_left20"
+            android:textSize="17sp"
+            android:text="￥ 1000 ++"/>
+    </LinearLayout>
+
+
+</LinearLayout>

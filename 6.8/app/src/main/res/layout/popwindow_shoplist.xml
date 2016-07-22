@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:background="@color/grey"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_popshoplist_favorable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:padding="10dp"
+        android:text="优惠活动" />
+    <TextView
+        android:id="@+id/tv_popshoplist_integral"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:padding="10dp"
+        android:text="积分兑换" />
+    <TextView
+        android:id="@+id/tv_popshoplist_shop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:padding="10dp"
+
+        android:text="商城" />
+</LinearLayout>

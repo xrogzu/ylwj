@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <TextView
+        android:text="主要看气质"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/homepage_item_title"
+        android:layout_below="@id/homepage_item_faceimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <com.administrator.view.MyGridView
+        android:id="@+id/homepage_item_gallery"
+        android:numColumns="3"
+        android:verticalSpacing="5dp"
+        android:background="@color/white"
+        android:layout_below="@id/homepage_item_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        >
+  </com.administrator.view.MyGridView>
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        layout="@layout/homepage_contentlist_item_bottom"
+        android:layout_below="@id/homepage_item_gallery"/>
+</merge>

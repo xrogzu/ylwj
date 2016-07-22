@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/nearby_comment_popup_content"
+        android:textSize="14sp"
+        android:padding="5dp"
+        android:textColor="@color/gray"
+        android:hint="发表我的评论..."
+        android:textColorHint="@color/activity_tvcolor"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="true"
+        android:gravity="top"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:maxLength="140"
+        android:inputType="textMultiLine"
+        android:minLines="8"
+        android:maxLines="10"
+        android:scrollbars="vertical"
+        android:background="@drawable/edittext_background_gray"/>
+    <Button
+        android:id="@+id/nearby_comment_popup_publish"
+        android:textColor="@color/white"
+        android:background="@drawable/button_selector"
+        android:textSize="14sp"
+        android:enabled="false"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/nearby_comment_popup_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <View
+        android:layout_below="@id/nearby_comment_popup_publish"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"/>
+
+</RelativeLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.administrator.elwj.Bigstage_DetailsViewpager">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/grey"
+        android:layout_height="40dp">
+        <TextView
+            android:text="活动现场"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/reback" />
+        <TextView
+            android:text="添加图片"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:id="@+id/add_pic"
+           />
+
+    </RelativeLayout>
+
+    <GridView
+        android:id="@+id/gridview_activity_pics"
+        android:paddingLeft="10dp"
+        android:numColumns="3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+</LinearLayout>

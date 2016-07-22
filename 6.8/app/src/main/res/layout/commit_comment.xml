@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/commit_commet_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/headline" />
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/ll_commit_comment_cancel"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:clickable="true"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+            <TextView
+                android:text="取消"
+                android:textSize="18dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_commit_comment_send"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/red"
+            android:textSize="18sp"
+            android:clickable="true"
+            android:text="发送"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
+    <CheckBox
+        android:text="同时转发"
+        android:visibility="gone"
+        android:id="@+id/cb_commit_commet"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:hint="写评论..."
+        android:gravity="left"
+        android:id="@+id/et_commit_comment_content"
+        android:layout_below="@+id/commit_commet_title"
+        android:layout_marginTop="8dp"
+        android:maxLength="140"
+        android:layout_marginBottom="8dp"
+        android:layout_above="@+id/cb_commit_commet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</RelativeLayout>

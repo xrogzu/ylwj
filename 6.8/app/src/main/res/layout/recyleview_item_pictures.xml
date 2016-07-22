@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <LinearLayout
+        android:clickable="true"
+        android:id="@+id/linear_pictures"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="30dp"
+                android:id="@+id/iv_recyleview_head"
+                android:layout_height="30dp"
+                android:src="@mipmap/head_expert"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="跟着感觉走"
+                android:layout_marginLeft="@dimen/margin_icon_left"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_recyleview_name"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:id="@+id/iv_recyleview_big"
+            android:src="@mipmap/text_list_interalbig"
+            android:adjustViewBounds="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_icon_left"
+            android:text="田园风格风景图"
+            android:id="@+id/tv_recyclerview_intruduce" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="@dimen/margin_icon_left5"
+            android:background="@color/darkgrey"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <CheckBox
+                android:layout_width="20dp"
+                android:background="@drawable/bg_checkbox_like"
+                android:checked="false"
+                android:button="@null"
+                android:id="@+id/checkbox_praise"
+                android:layout_height="20dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_icon_left"
+                android:text="1222"
+                android:id="@+id/tv_recyleview_num"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

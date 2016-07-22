@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:id="@+id/tv_vote_num"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:text="第一项:"
+        android:textColor="@color/black" />
+    <EditText
+        android:id="@+id/tv_vote_name"
+        android:padding="2dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/tv_vote_num"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:minWidth="200dp"
+        android:textColor="@color/gray"
+        android:background="@drawable/edittext_background_gray"
+        android:hint="消费"
+        android:textSize="14sp"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:clickable="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:id="@+id/iv_vote_remove"
+        android:layout_width="wrap_content"
+        android:src="@mipmap/vote_delete"
+        android:layout_marginLeft="@dimen/margin_icon_left"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

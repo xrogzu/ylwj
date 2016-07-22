@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/headline" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="#FFFEBA00"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+    <com.library.listview.XListView
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:background="#ffd5d5d5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listView_headline"
+        android:scrollbars="none"
+        android:divider="@null"
+        android:dividerHeight="0px"/>
+
+</LinearLayout>

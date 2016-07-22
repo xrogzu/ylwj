@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@color/grey"
+    android:padding="10dp">
+
+
+    <ImageButton
+        android:id="@+id/ib_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/reback"
+        android:background="@color/grey" />
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:textColor="@color/black"
+       android:text="1/5"
+       android:textSize="16sp"
+       android:layout_centerHorizontal="true"
+       android:id="@+id/tv_viewpagerdetails_num"
+       android:layout_height="match_parent" />
+    <ImageButton
+        android:layout_alignParentRight="true"
+        android:layout_width="45dp"
+        android:layout_height="20dp"
+        android:background="@mipmap/delete"
+        android:id="@+id/ib_delete"
+        />
+</RelativeLayout>

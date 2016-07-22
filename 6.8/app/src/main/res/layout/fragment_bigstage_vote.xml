@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <View
+        android:background="@color/gray_line_bg"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <include layout="@layout/bigstage_activity_name_layout"/>
+    <View
+        android:background="@color/gray_line_bg"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <include layout="@layout/bigstage_activity_community_layout"/>
+    <View
+        android:background="@color/gray_line_bg"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <include layout="@layout/bigstage_activity_content_layout"/>
+    <View
+        android:background="@color/gray_line_bg"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <include layout="@layout/bigstage_vote_option_layout"/>
+
+    <View
+        android:background="@color/gray_line_bg"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <include layout="@layout/bigstage_vote_result_layout"/>
+
+    <View
+        android:background="@color/gray_line_bg"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <include layout="@layout/bigstage_activity_signtime_layout"/>
+
+    <View
+        android:background="@color/gray_line_bg"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:visibility="gone"/>
+    <include
+        layout="@layout/bigstage_vote_type_layout"/>
+
+</LinearLayout>

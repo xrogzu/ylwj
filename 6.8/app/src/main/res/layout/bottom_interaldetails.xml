@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:clickable="true"
+        android:id="@+id/linear_service"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/service"
+            android:layout_marginTop="1dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1.5dp"
+            android:text="客服" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="1px"
+        android:background="@color/darkgrey"
+        android:layout_height="50dp" />
+    <CheckBox
+        android:id="@+id/linear_collect"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:checked="false"
+        android:drawableTop="@drawable/collection_checkbox_selector"
+        android:textColor="@color/gray"
+        android:text="收藏" />
+<!--<LinearLayout-->
+        <!--android:clickable="true"-->
+        <!--android:id="@+id/linear_collect"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@mipmap/collect"-->
+            <!--android:layout_marginTop="1dp"/>-->
+
+        <!--<CheckBox-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="1.5dp"-->
+            <!--android:button="@null"-->
+            <!--android:checked="false"-->
+            <!--android:background="@drawable/collection_checkbox_selector"-->
+            <!--android:textColor="@color/gray"-->
+            <!--android:text="收藏" />-->
+    <!--</LinearLayout>-->
+    <TextView
+        android:layout_width="1px"
+        android:background="@color/darkgrey"
+        android:layout_height="50dp" />
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_weight="2.5"
+        android:gravity="center"
+        android:id="@+id/bt_addshopcars"
+        android:text="加入购物车"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:background="@color/orange"
+        />
+    <Button
+        android:text="立即购买"
+        android:id="@+id/bt_buy_immediately"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:layout_height="45dp"
+        android:layout_weight="2.5"
+        android:background="@color/orangered"
+        />
+
+</LinearLayout>

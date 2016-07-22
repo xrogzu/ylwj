@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="投票类型："
+        android:textColor="@color/black" />
+    <RadioGroup
+        android:id="@+id/bigstage_vote_choice_type_rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingTop="10dp"
+        android:orientation="vertical">
+        <RadioButton
+            android:id="@+id/bigstage_vote_choice_type_single"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:checked="true"
+            android:text="单选"
+            android:drawableRight="@drawable/vote_type_choose_rb"
+            android:button="@null"
+            android:drawablePadding="5dp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/bigstage_vote_choice_type_many"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="多选"
+            android:drawableRight="@drawable/vote_type_choose_rb"
+            android:button="@null"
+            android:drawablePadding="5dp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/bigstage_vote_choice_type_nolimit"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="无限制"
+            android:drawableRight="@drawable/vote_type_choose_rb"
+            android:button="@null"
+            android:drawablePadding="5dp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"/>
+    </RadioGroup>
+</LinearLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@color/grey"
+    android:weightSum="1">
+
+    <ImageButton
+        android:id="@+id/ib_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:background="#00000000"
+        android:paddingLeft="10dp"
+        android:src="@mipmap/reback" />
+
+    <LinearLayout
+        android:id="@+id/li_title_drop"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Title"
+            android:textSize="@dimen/text_title" />
+
+        <ImageButton
+            android:id="@+id/drop_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/drop_down"
+            android:visibility="gone" />
+    </LinearLayout>
+
+
+    <ImageButton
+        android:layout_alignParentRight="true"
+        android:id="@+id/ib_shoppingcar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="@dimen/margin_icon_left"
+        android:background="#00000000"
+        android:src="@mipmap/shoppingcar" />
+
+</RelativeLayout>

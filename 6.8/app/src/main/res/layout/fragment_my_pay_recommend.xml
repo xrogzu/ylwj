@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#ffe8e8e8"
+    android:layout_height="match_parent">
+
+    <com.library.listview.XListView
+        android:scrollbars="none"
+        android:background="@color/bg_list"
+        android:id="@+id/listView_my_pay"
+        android:divider="#ffaaaaaa"
+        android:dividerHeight="2px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:clickable="true"
+            android:id="@+id/iv_history_activity_left"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:src="@mipmap/gift_right_top"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_width="0px"
+            android:layout_height="0px" />
+    </RelativeLayout>
+
+    <!--<View-->
+        <!--android:visibility="gone"-->
+        <!--android:layout_width="5dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/white"/>-->
+
+    <!--<ImageView-->
+        <!--android:visibility="gone"-->
+        <!--android:clickable="true"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:id="@+id/iv_history_activity_right"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content" />-->
+
+
+</LinearLayout>

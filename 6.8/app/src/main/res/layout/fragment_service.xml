@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <include layout="@layout/title"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="#FFFEBA00"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+    <RadioGroup
+        android:id="@+id/rg_finacial"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:background="@color/white"
+            android:id="@+id/rb_recommend"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="理财早知道"
+            android:textColor="@color/rg_finacial_selector" />
+
+        <RadioButton
+            android:background="@color/white"
+            android:id="@+id/rb_hot_selling"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="家庭财富"
+            android:textColor="@color/rg_finacial_selector" />
+
+        <RadioButton
+            android:background="@color/white"
+            android:id="@+id/rb_finial_expert"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="金融专家"
+            android:textColor="@color/rg_finacial_selector" />
+
+        <RadioButton
+            android:background="@color/white"
+            android:id="@+id/rb_servicemap"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="网点地图"
+            android:textColor="@color/rg_finacial_selector" />
+
+        <RadioButton
+            android:background="@color/white"
+            android:id="@+id/rb_finial_commonsense"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="金融常识"
+            android:textColor="@color/rg_finacial_selector" />
+    </RadioGroup>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:orientation="horizontal"
+        android:background="@color/white">
+    <TextView
+        android:id="@+id/tv_bottom_line"
+        android:layout_width="10dp"
+        android:layout_height="2dp"
+        android:background="#FF5460" />
+    </LinearLayout>
+    <com.administrator.pager.MyFinancialViewpager
+        android:id="@+id/viewPager_finicial_expert"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

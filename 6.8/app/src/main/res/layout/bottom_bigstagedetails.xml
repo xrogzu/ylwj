@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:id="@+id/li_bigbottom_attention">
+
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:checked="false"
+                android:button="@null"
+                android:background="@drawable/bg_checkbox_attention"
+                android:layout_marginTop="3dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_icon_left5"
+                android:text="关注" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:id="@+id/li_bigbottom_share">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/icon_details_share"
+                android:layout_marginTop="3dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_icon_left5"
+                android:text="分享" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="@mipmap/button_bg"
+            android:id="@+id/li_bigbottom_startvote"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:layout_weight="5">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="发起投票"
+                android:id="@+id/tv_bigbottom_starvote"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_height="match_parent" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="0.8">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_bigbottom_onlyleft"
+                    android:text="距投票结束仅剩"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:id="@+id/tv_bigbottom_onlyleftNum"
+                    android:text="30:25:12:36"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

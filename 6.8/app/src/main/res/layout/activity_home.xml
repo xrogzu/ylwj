@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.administrator.elwj.HomeActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:id="@+id/container" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/black"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+        <RadioGroup
+            android:id="@+id/rg_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/homebottom"
+            android:orientation="horizontal"
+            android:padding="2dp">
+
+            <RadioButton
+                android:background="@color/white"
+                android:id="@+id/rb_bottom_newest"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/tab_home_selector"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:text="最新"
+                android:textColor="@color/bottom_tv_color" />
+
+            <RadioButton
+                android:background="@color/white"
+                android:id="@+id/rb_bottom_nb"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/tab_nb_selector"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:text="身边"
+                android:textColor="@color/bottom_tv_color" />
+
+            <RadioButton
+                android:background="@color/white"
+                android:id="@+id/rb_bottom_service"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/tab_service_selector"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:text="服务"
+                android:textColor="@color/bottom_tv_color" />
+
+            <RadioButton
+                android:background="@color/white"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:id="@+id/rb_bottom_user"
+                android:drawableTop="@drawable/tab_user_selector"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:text="我的"
+                android:textColor="@color/bottom_tv_color" />
+        </RadioGroup>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/homebottom"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/tv_service"
+
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

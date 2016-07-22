@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:clickable="false"
+    android:orientation="vertical">
+
+    <include layout="@layout/nearbyitem_head" />
+
+    <RelativeLayout
+        android:id="@+id/rl_item2_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_icon_left"
+        android:layout_marginRight="@dimen/margin_icon_left"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:background="#fff8f8f8">
+
+        <ImageView
+            android:layout_alignParentLeft="true"
+            android:id="@+id/iv_nearby2"
+            android:layout_width="70dp"
+            android:layout_height="80dp"
+            android:layout_centerVertical="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/text_bigstage_card" />
+
+
+        <ImageView
+            android:id="@+id/iv_apply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"/>
+
+        <LinearLayout
+            android:id="@+id/ll_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_shenbian_pen"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="2dp"
+                android:src="@mipmap/dingzi" />
+
+            <TextView
+                android:id="@+id/tv_bigstage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="社区大舞台"
+                android:textColor="#507DAF"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_toRightOf="@+id/iv_nearby2"
+            android:layout_toLeftOf="@+id/ll_from"
+            android:layout_alignTop="@+id/iv_nearby2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_nearby2_acname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="鲍岛社区扑克牌对"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_nearby2_aclocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_icon_left5"
+                android:text="山东省 青岛 市南 鲍岛社区" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_icon_left5"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_nearby2_acnum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/red" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="人已经报名" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <include layout="@layout/nearbyitem_bottom" />
+
+</LinearLayout>

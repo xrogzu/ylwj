@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/nearbyitem_head" />
+
+    <LinearLayout
+        android:id="@+id/ll_gridview_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:orientation="vertical">
+
+        <com.administrator.view.MyGridView
+            android:id="@+id/nearby_item_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/homepage_item_title"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/white"
+            android:numColumns="3"
+            android:verticalSpacing="5dp" />
+    </LinearLayout>
+
+
+    <include layout="@layout/nearbyitem_bottom" />
+</LinearLayout>

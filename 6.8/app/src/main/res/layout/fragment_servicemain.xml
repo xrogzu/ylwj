@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <include layout="@layout/headline" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="#FFFEBA00"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+    <ImageView
+        android:src="@mipmap/fwindex_01"
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        android:layout_marginBottom="5dp"
+        android:layout_height="150dp" />
+    <GridView
+        android:id="@+id/gridview"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:horizontalSpacing="5dip"
+        android:listSelector="@null"
+        android:numColumns="2"
+        android:scrollbars="none"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="5dip"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"/>
+</LinearLayout>

@@ -1,0 +1,73 @@
+<resources>
+    <string name="bdapikey">wYvaUUny814Xrf6SdQmxl0fv </string>
+    <string name="amapkey">1ee893cd9da4c92ec3a48d24a253d738</string>
+    <string name="app_name">华夏e生活</string>
+    <string name="example">Example</string>
+    <string name="title_activity_login">普通登录</string>
+    <string name="title_activity_justlogin">登录</string>
+    <string name="service">服务</string>
+    <string name="nearby">身边</string>
+    <string name="headline">最新</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_phone">请输入手机号码</string>
+    <string name="prompt_password">请输入6至16位密码</string>
+    <string name="action_sign_in">登&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;录</string>
+    <string name="forgetpassword">忘记密码？</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">电话号码不合法</string>
+    <string name="error_invalid_password">密码只能是6至16位</string>
+    <string name="error_incorrect_password">密码不正确</string>
+    <string name="error_field_required">请输入电话号码</string>
+    <string name="error_authcode_required">请输入验证码</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="quicklogin">验证码快捷登录</string>
+    <string name="regedit">注册</string>
+    <string name="regedit_complete">注册完成</string>
+    <string name="add86">+86</string>
+    <string name="getauthcode">获取验证码</string>
+    <string name="authcode">验证码</string>
+    <string name="password">密码</string>
+    <string name="need_more_combination">需6至16位以上字母、数字组合</string>
+    <string name="next_step">下一步</string>
+    <string name="province">省市区</string>
+    <string name="street">街道</string>
+    <string name="community">社区</string>
+    <string name="financial">金融管家</string>
+    <string name="integral_shop">社区超市</string>
+    <string name="belong_community">社区</string>
+    <string name="account_passwordLogin">华夏e生活账户密码登录</string>
+    <string name="authcode_quickLogin">验证码快捷登录</string>
+    <string name="shop">进口商城</string>
+    <string name="more">更多</string>
+    <string name="favorable">优惠活动</string>
+    <string name="integral_exchange">积分兑换</string>
+    <string name="integral">积分</string>
+    <string name="comprehensive">综合</string>
+    <string name="salesvolume">销量</string>
+    <string name="price">价格</string>
+    <string name="preparation">筛选</string>
+    <string name="interal_preparation">积分筛选</string>
+    <string name="big_stage">社区大舞台</string>
+
+
+    <!-- 图片浏览 -->
+    <string name="only_choose_num">超出可选图片张数</string>
+    <string name="finish">完成</string>
+    <string name="invalidSD">sdcard无效或没有插入！</string>
+    <string name="photo">选择相册</string>
+    <string name="album">相册</string>
+    <string name="preview">预览</string>
+    <string name="unfinished">完成</string>
+    <string name="camera_cancel">取消</string>
+    <string name="no_photo">相册没有图片</string>
+    <string name="sold">已售 </string>
+    <string name="jian"> 件</string>
+    <string name="confirm_popwindow_btn">确认支付</string>
+    <string name="home_page_title">个人主页</string>
+
+    <string name="service_phone">053266888577</string>
+    <string name="waitNetRequest">正在加载...</string>
+</resources>
