@@ -73,7 +73,7 @@
     <Button
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_weight="2.5"
+        android:layout_weight="0"
         android:gravity="center"
         android:id="@+id/bt_addshopcars"
         android:text="加入购物车"

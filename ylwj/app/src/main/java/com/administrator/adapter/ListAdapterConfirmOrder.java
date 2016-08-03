@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class ListAdapterConfirmOrder extends BaseAdapter {
     private Context mContext;
-    private int type;//1现金，2积分
+    private int type;//1现金，2积分 3华夏支付
     private List<Bean_GoodsList.DataEntity> dataEntities;
     private ImageLoader imageLoader;
     private DisplayImageOptions options;
@@ -79,6 +79,8 @@ public class ListAdapterConfirmOrder extends BaseAdapter {
             viewHoder.mOrderMoney.setText("￥" + String.format("%.2f",dataEntities.get(position).getPrice()) + "");
         } else if (type == 2 || type == 12) {
             viewHoder.mOrderMoney.setText(dataEntities.get(position).getPrice() + " 积分");
+        }else if(type==3){
+            viewHoder.mOrderMoney.setText("￥" + dataEntities.get(position).getMktprice());
         }
         viewHoder.mOrderCount.setText("X" + dataEntities.get(position).getBuy_count());
 

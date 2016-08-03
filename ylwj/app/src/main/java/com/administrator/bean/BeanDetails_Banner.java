@@ -85,6 +85,15 @@ public class BeanDetails_Banner {
             this.type = type;
         }
 
+
+        public String getDelivery_detail() {
+            return delivery_detail;
+        }
+
+        public void setDelivery_detail(String delivery_detail) {
+            this.delivery_detail = delivery_detail;
+        }
+
         private String adjuncts;
         private String big;
         private int brand_id;
@@ -116,6 +125,15 @@ public class BeanDetails_Banner {
         private String thumbnail;
         private int type_id;
         private String unit;
+        private String delivery_android;//Android 图片展示邮寄方式
+        private String delivery_detail;//邮寄方式描述
+        public String getDelivery_android() {
+            return delivery_android;
+        }
+
+        public void setDelivery_android(String delivery_android) {
+            this.delivery_android = delivery_android;
+        }
 
         public String getFlag() {
             return flag;

@@ -59,7 +59,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:id="@+id/ib_shoppingcar"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp"
         android:background="#00000000"

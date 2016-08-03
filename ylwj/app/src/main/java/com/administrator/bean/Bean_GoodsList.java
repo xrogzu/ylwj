@@ -102,6 +102,11 @@ public class Bean_GoodsList {
     }
 
     public static class DataEntity implements Serializable{
+        private String delivery_detail;//邮寄方式描述
+        private String delivery_android;//Android 图片展示邮寄方式
+
+
+
         private int goods_id;
         private String name;
         private String sn;
@@ -160,6 +165,21 @@ public class Bean_GoodsList {
         private String thumbnail;
         private String big;
 
+        public String getDelivery_android() {
+            return delivery_android;
+        }
+
+        public void setDelivery_android(String delivery_android) {
+            this.delivery_android = delivery_android;
+        }
+
+        public String getDelivery_detail() {
+            return delivery_detail;
+        }
+
+        public void setDelivery_detail(String delivery_detail) {
+            this.delivery_detail = delivery_detail;
+        }
         public String getFlag() {
             return flag;
         }

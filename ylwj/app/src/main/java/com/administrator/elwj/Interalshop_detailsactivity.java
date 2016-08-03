@@ -1,11 +1,8 @@
 package com.administrator.elwj;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -13,8 +10,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -78,6 +73,7 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
     private ImageButton ib_details_redduce;
     private ImageButton ib_details_add;
     private TextView tv_details_num;
+    private ImageView delivery_img;
     private int num = 1;
     private LinearLayout shuliang;
     private RelativeLayout rl_shopdetails_choosecolor;
@@ -86,6 +82,7 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
     private LinearLayout linear_service;
     private CheckBox linear_collect;
     private Button bt_addshopcars;
+    private TextView delivery_detail;
     private Button bt_buy_immediately;
     private PopupWindow popupWindow;
     private ImageButton ib_shoppingcar;
@@ -179,10 +176,17 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
                         e.printStackTrace();
                     }
                 }
-                if (which == Constant.GOODS_DETAILS) {
+                if (which == Constant.GOODS_DETAILS) {//优惠活动产品
                     Gson gson = new Gson();
                     LogUtils.e("Main", json);
                     BeanDetails_Banner beanDetails_banner = gson.fromJson(json, BeanDetails_Banner.class);
+//                    if(!TextUtils.isEmpty(beanDetails_banner.getData().getDelivery_android())) {
+//                        activity.imageLoader.displayImage(beanDetails_banner.getData().getDelivery_android(), activity.delivery_img, activity.options);
+//                    }
+                    if(!TextUtils.isEmpty(beanDetails_banner.getData().getDelivery_detail())) {
+                        activity.delivery_detail.setVisibility(View.VISIBLE);
+                        activity.delivery_detail.setText(beanDetails_banner.getData().getDelivery_detail());
+                    }
                     if (beanDetails_banner != null) {
                         //一元活动，限购一次
                         if(!TextUtils.isEmpty(beanDetails_banner.getData().getType())&&beanDetails_banner.getData().getPrice()==1.0) {
@@ -195,7 +199,11 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
                                 activity.bt_buy_immediately.setClickable(false);
                                 activity.bt_buy_immediately.setBackgroundColor(activity.getResources().getColor(R.color.gray));
                             }
-
+                        }
+                        //判断是有华夏价的产品
+                        if(!TextUtils.isEmpty(beanDetails_banner.getData().getMktprice())||!beanDetails_banner.getData().getMktprice().equals("0.00")){
+                            activity.huaxiaProduct=true;
+                            activity.bt_addshopcars.setBackgroundColor(activity.getResources().getColor(R.color.gray));
                         }
                         activity.details_banner = beanDetails_banner.getData();
                         if (activity.beanDetails == null) {
@@ -213,6 +221,7 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
                         activity.beanDetails.setSmall(Constant.baseUrl + activity.details_banner.getSmall().substring(3));
                         activity.beanDetails.setOriginal(activity.details_banner.getOriginal());
                         activity.beanDetails.setFlag(activity.details_banner.getFlag());
+
                     }
                     if (activity.details_banner != null) {
                         if (activity.details_banner.getFlag().equals("1")) {//积分
@@ -364,21 +373,35 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
         appContext = (BaseApplication) getApplication();
         Intent intent = getIntent();
         type = intent.getIntExtra("type", Constant.SHOP_TYPE_CREDIT);
-        if (type == Constant.SHOP_TYPE_MONEY) {
+        if (type == Constant.SHOP_TYPE_MONEY) {//现金产品
 //            VolleyUtils.NetUtils(appContext.getRequestQueue(), Constant.baseUrl + Constant.goodsDetails, new String[]{"id"}, new String[]{id}, handler, Constant.GOODS_DETAILS);
-            beanDetails = (Bean_GoodsList.DataEntity) intent.getSerializableExtra("details_info");//商品详情图片加载参数
+            beanDetails = (Bean_GoodsList.DataEntity) intent.getSerializableExtra("details_info");//商品详情参数
+            if(!TextUtils.isEmpty(beanDetails.getDelivery_detail())) {//邮递方式信息展示
+                delivery_detail.setVisibility(View.VISIBLE);
+                delivery_detail.setText(beanDetails.getDelivery_detail());
+            }
+            if(!TextUtils.isEmpty(beanDetails.getDelivery_android())){
+                imageLoader.displayImage(beanDetails.getDelivery_android(),delivery_img, options);
+            }
             if (beanDetails != null)
                 removePic = beanDetails.getBig();
             VolleyUtils.NetUtils(appContext.getRequestQueue(), Constant.baseUrl + Constant.detailsImg, new String[]{"id"}, new String[]{beanDetails.getGoods_id() + ""}, handler, Constant.DETAILS_IMGS);
             initView_carsh();
-        } else if (type == Constant.SHOP_TYPE_CREDIT) {
-            beanDetails = (Bean_GoodsList.DataEntity) intent.getSerializableExtra("details_info");//商品详情图片加载参数
+        } else if (type == Constant.SHOP_TYPE_CREDIT) {//积分产品
+            beanDetails = (Bean_GoodsList.DataEntity) intent.getSerializableExtra("details_info");//商品详情参数
+            if(!TextUtils.isEmpty(beanDetails.getDelivery_detail())) {//邮递方式信息展示
+                delivery_detail.setVisibility(View.VISIBLE);
+                delivery_detail.setText(beanDetails.getDelivery_detail());
+            }
+            if(!TextUtils.isEmpty(beanDetails.getDelivery_android())){
+                imageLoader.displayImage(beanDetails.getDelivery_android(),delivery_img, options);
+            }
             if (beanDetails != null)
                 removePic = beanDetails.getBig();
             VolleyUtils.NetUtils(appContext.getRequestQueue(), Constant.baseUrl + Constant.detailsImg, new String[]{"id"}, new String[]{beanDetails.getGoods_id() + ""}, handler, Constant.DETAILS_IMGS);
             initViews_gredit();
         }
-        if (type == Constant.SHOP_TYPE_AUTO) {//自动判断商品
+        if (type == Constant.SHOP_TYPE_AUTO) {//自动判断商品（优惠活动产品）
             String id = intent.getStringExtra("id");
             productId=intent.getStringExtra("id");
             //获取要去除的图片
@@ -412,7 +435,7 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
     @Override
     protected void onRestart() {
         super.onRestart();
-        if(restrictionShopping){
+        if(restrictionShopping){//限购产品加入购物车后返回刷新
             VolleyUtils.NetUtils(appContext.getRequestQueue(), Constant.baseUrl + Constant.goodsDetails, new String[]{"id"}, new String[]{productId}, handler, Constant.GOODS_DETAILS);
         }
     }
@@ -421,6 +444,8 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
      * 不需要数据，原始的view
      */
     private void initPriView() {
+        delivery_img= (ImageView) findViewById(R.id.delivery_img);
+        delivery_detail= (TextView) findViewById(R.id.delivery_detail);
         song_jifen = (LinearLayout) findViewById(R.id.song);
         song_jifen.setVisibility(View.GONE);
         shuliang = (LinearLayout) findViewById(R.id.shuliang);
@@ -457,6 +482,10 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
      * 现金支付
      */
     private void initView_carsh() {//现金
+        if(!TextUtils.isEmpty(beanDetails.getMktprice())||!beanDetails.getMktprice().equals("0.00")){//判断是有华夏价的产品
+            huaxiaProduct=true;
+            bt_addshopcars.setBackgroundColor(getResources().getColor(R.color.gray));
+        }
         bt_buy_immediately.setText("立即购买");
         bt_addshopcars.setVisibility(View.VISIBLE);
         bt_addshopcars.setOnClickListener(this);
@@ -599,6 +628,11 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
 
 
     private boolean restrictionShopping=false;//限购活动
+    private boolean huaxiaProduct=false;//华夏价产品
+    private static final int YINGLIAN_PAY=1004;
+    private static final int HUAXIA_PAY=1006;
+    private int  payType=YINGLIAN_PAY;
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -671,7 +705,7 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
                 break;
             //点击加入购物车和立即购买，都会出现popupwindow
             case R.id.bt_addshopcars://加入购物车
-                if(!restrictionShopping) {
+                if(!restrictionShopping&&!huaxiaProduct) {//一元限购或有华夏价的商品，不允许加入购物车
                     if (BaseApplication.isLogin) {
                         String num = tv_details_num.getText().toString();
                         if (beanDetails != null)
@@ -764,6 +798,31 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
         popSureButton = (Button) view.findViewById(R.id.bt_pop_sure);
         ImageView popDismissImage = (ImageView) view.findViewById(R.id.pop_dismiss_iv);
         poptvMyCredit = (TextView) view.findViewById(R.id.pop_my_credit);
+        ImageView yinlian_pay= (ImageView) view.findViewById(R.id.yinlian_pay);
+        ImageView huaxia_pay= (ImageView) view.findViewById(R.id.huaxia_pay);
+        final ImageView choose_yinlian= (ImageView)view. findViewById(R.id.choose_yinlian);
+        final ImageView choose_huaxia= (ImageView) view.findViewById(R.id.choose_huaxia);
+        yinlian_pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                choose_yinlian.setImageResource(R.mipmap.choose);
+                choose_huaxia.setImageResource(R.mipmap.no_choose);
+                payType=YINGLIAN_PAY;
+                count = Integer.parseInt(popCountEditText.getText().toString().trim());
+                popPriceTV.setText("￥" + String.format("%.2f",beanDetails.getPrice()*count) + "");//显示银联价
+            }
+        });
+        huaxia_pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                choose_yinlian.setImageResource(R.mipmap.no_choose);
+//                choose_huaxia.setImageResource(R.mipmap.choose);
+//                payType=HUAXIA_PAY;
+//                count = Integer.parseInt(popCountEditText.getText().toString().trim());
+//                popPriceTV.setText("￥" +  Integer.valueOf(beanDetails.getMktprice())*count+"");//显示华夏价
+                ToastUtil.showToast(Interalshop_detailsactivity.this,"华夏支付开发中");
+            }
+        });
         if (beanDetails != null) {
             imageLoader.displayImage(beanDetails.getSmall(), popImageView, options);
             popName.setText(beanDetails.getName());
@@ -793,9 +852,12 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
                         } else {
                             //数量加1
                             popCountEditText.setText(--count + "");
-
                             if (type == Constant.SHOP_TYPE_MONEY) {
-                                popPriceTV.setText("￥" + String.format("%.2f",beanDetails.getPrice() * count) + "");
+                                if(payType==HUAXIA_PAY){
+                                    popPriceTV.setText("￥" + Double.parseDouble(beanDetails.getMktprice()) * count + "");
+                                }else {
+                                    popPriceTV.setText("￥" + String.format("%.2f", beanDetails.getPrice() * count) + "");
+                                }
                             } else {
                                 popPriceTV.setText(DoubleUtils.convert2String(beanDetails.getPrice() * count) + "积分");
                                 setCreditTips(myCredit);
@@ -806,7 +868,7 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
                 popAddBuBbtton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(!restrictionShopping) {
+                        if(!restrictionShopping) {//一元限购不允许选择数量
                                 count = Integer.parseInt(popCountEditText.getText().toString().trim());
                                 if (1 <= count && count == Integer.parseInt(beanDetails.getStore())) {
                                     //用户选择的数量不能大于商品总得库存量
@@ -816,7 +878,12 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
                                     //数量加1
                                     popCountEditText.setText(++count + "");
                                     if (type == Constant.SHOP_TYPE_MONEY) {
-                                        popPriceTV.setText("￥" + String.format("%.2f", beanDetails.getPrice() * count));
+                                        if(payType==HUAXIA_PAY){
+                                            popPriceTV.setText("￥" +  Double.parseDouble(beanDetails.getMktprice()) * count + "");
+                                        }else {
+                                            popPriceTV.setText("￥" + String.format("%.2f", beanDetails.getPrice() * count) + "");
+                                        }
+
                                     } else {
                                         popPriceTV.setText(DoubleUtils.convert2String(beanDetails.getPrice() * count) + "积分");
                                         setCreditTips(myCredit);
@@ -841,6 +908,7 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
                             intent.putExtra("from", Constant.FROMDETIAL);
                             intent.putExtra("dataEntities", (Serializable) dataEntities);
                             intent.putExtra("num", String.valueOf(count));
+                            intent.putExtra("payType",payType);
                             startActivity(intent);
                             popupWindow.dismiss();
                         } else if (click_which == Add_SHOPCAR) {
@@ -867,8 +935,13 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
         DisplayMetrics dm = new DisplayMetrics();
         //取得窗口属性
         getWindowManager().getDefaultDisplay().getMetrics(dm);
-        //窗口高度
-        popupWindow.setHeight(dm.heightPixels * 2 / 4);
+        if(type == Constant.SHOP_TYPE_CREDIT){//积分产品
+            View payType=view.findViewById(R.id.pop_pay_type);
+            payType.setVisibility(View.GONE);
+            popupWindow.setHeight(dm.heightPixels * 1/2);//窗口高度
+        }else {
+            popupWindow.setHeight(dm.heightPixels * 7 / 10);
+        }
         // 设置popWindow弹出窗体可点击，这句话必须添加，并且是true
         popupWindow.setFocusable(true);
         // 必须要给调用这个方法，否则点击popWindow以外部分，popWindow不会消失

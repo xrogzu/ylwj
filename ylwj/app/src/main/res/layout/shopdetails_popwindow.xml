@@ -17,6 +17,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             layout="@layout/pop_goods_typechoice"/>
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/pop_pay_type"/>
     </LinearLayout>
 
     <Button

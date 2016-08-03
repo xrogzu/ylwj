@@ -4,6 +4,14 @@
     android:layout_height="wrap_content"
     android:background="@color/white">
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:padding="5dp"
+        android:textColor="@color/blue"
+        android:id="@+id/delivery_detail"
+        />
+    <TextView
         android:id="@+id/tv_shopdetails_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -12,6 +20,7 @@
         android:layout_marginLeft="5dp"
         android:textColor="@color/orangered"
         android:text="￥1200.00"
+        android:layout_below="@+id/delivery_detail"
        />
     <TextView
         android:layout_width="wrap_content"
@@ -180,7 +189,10 @@
             android:textSize="10sp"
             />
     </LinearLayout>
-
-
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:id="@+id/delivery_img"
+        android:layout_below="@+id/song"/>
 </RelativeLayout>

@@ -30,7 +30,7 @@ public class Constant {
 //    public static final String baseUrl = "http://180.76.148.177:8088";//ip地址
 
       public static final String baseUrl = "http://www.shequchina.cn/javamall";//ip地址
-    //public static final String baseUrl = "http://192.168.1.114:8080/mall";//ip地址
+      //  public static final String baseUrl = "http://192.168.1.114:8080/mall";//ip地址
 
 
     public static final String getAdImg = "/api/mobile/fin!getNonBannerList.do";//精致生活和金融常识的轮播
@@ -101,7 +101,9 @@ public class Constant {
     public static final String create_order_money = "/api/mobile/order!create.do?";//现金提交订单
 
     public static final String getPayType = "/api/mobile/order!paymentShipping.do";
-    public static final String doPayment_point = "/api/shop/payment.do?";//积分支付
+    public static final String doPayment_point = "/api/shop/payment.do?";// 积分支付,或银联
+    public static final String doPayment_point_huaxia = "/api/mobile/eshop!MP001.do?";// 华夏支付
+
     public static final String getActivityByID = "/api/stage/activityApi!getActivityById.do?";
     public static final String getCommunityActivity = "/api/stage/activityApi!listCommunityActivity.do?";
     public static final String getApplyActivity = "/api/stage/activityApi!listMemberApplyActivity.do?";
@@ -217,6 +219,7 @@ public class Constant {
     public static final int GET_USERINFO = 0x0037;//获取用户信息
     public static final int GET_ORDERID = 0x0038;//获取订单id
     public static final int DO_PAYMENT = 0x0039;//支付操作
+    public static final int DO_PAYMENT_HUAXIA = 100011;//支付操作
     public static final int MemberBinding = 0x0037;//会员绑定
     public static final int LESS_FIVE = 0x038;//<5
     public static final int FIVE_TEN = 0x039;//5-10

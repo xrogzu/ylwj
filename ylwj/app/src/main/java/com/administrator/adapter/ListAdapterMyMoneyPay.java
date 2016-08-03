@@ -212,6 +212,7 @@ public class ListAdapterMyMoneyPay extends BaseAdapter {
                     intent.putExtra("type", Constant.SHOP_TYPE_MONEY);
                     intent.putExtra("from", Constant.FROMWAITPAY);
                     intent.putExtra("orderPay", lists.get(position));
+                    intent.putExtra("payType",lists.get(position).getPayment_id());//支付类型
                     intent.putExtra("num", String.valueOf(lists.get(position).getItemList().get(0).get("num")));
                     context.startActivity(intent);
                 }

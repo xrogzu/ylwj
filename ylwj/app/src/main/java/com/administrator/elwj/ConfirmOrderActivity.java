@@ -2,9 +2,12 @@ package com.administrator.elwj;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -23,6 +26,7 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.administrator.adapter.ListAdapterConfirmOrder;
 import com.administrator.bean.Addresses;
@@ -31,11 +35,13 @@ import com.administrator.bean.Bean_GoodsPayList;
 import com.administrator.bean.Bean_Shopcarlist;
 import com.administrator.bean.Constant;
 import com.administrator.bean.OrderBackBean;
+import com.administrator.bean.OrderDetailsBean;
 import com.administrator.bean.UserAddress;
 import com.administrator.bean.UserInfo;
 import com.administrator.fragment.AddressFragment;
 import com.administrator.myviews.ListViewForScrollView;
 import com.administrator.utils.LogUtils;
+import com.administrator.utils.OrderStatus;
 import com.administrator.utils.ToastUtil;
 import com.administrator.utils.VolleyUtils;
 import com.google.gson.Gson;
@@ -63,7 +69,7 @@ import java.util.Map;
  * <p>created by wujian</p>
  */
 public class ConfirmOrderActivity extends AppCompatActivity {
-
+    private ProgressDialog progressDialog;
     //银联支付是否成功
     private boolean isPaySuccess = false;
     //提交订单是否成功
@@ -75,6 +81,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
     private BaseApplication appContext;
     private int type;
     private String num;
+    private int payID=1000;
     private TextView mOrderUser;
     private TextView mOrderPhone;
     private TextView mOrderAddress;
@@ -125,6 +132,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
 
         @Override
         public void handleMessage(Message msg) {
+
             final ConfirmOrderActivity activity = mActivity.get();
             if (activity != null) {
                 String json = (String) msg.obj;
@@ -150,7 +158,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         break;
-                    case Constant.GET_ORDERID:
+                    case Constant.GET_ORDERID://获得订单号
                         try {
                             jsonObject = new JSONObject(json);
                             LogUtils.i("wj", "订单信息" + json);
@@ -166,15 +174,16 @@ public class ConfirmOrderActivity extends AppCompatActivity {
                                     jsonObject = new JSONObject(order);
                                     activity.orderid = jsonObject.optString("order_id");
                                     activity.isCommitSuccess = true;
-                                    activity.showPopWindow(activity.credit, activity.orderid);
+                                    activity.showPopWindow(activity.credit, activity.orderid,0.00);
                                 } else if (activity.type == Constant.SHOP_TYPE_MONEY) {
                                     Gson gson = new Gson();
                                     activity.mOrderBack = gson.fromJson(json, OrderBackBean.class);
                                     if (activity.mOrderBack != null) {
                                         if (activity.mOrderBack.getResult() == 1) {
                                             OrderBackBean.OrderEntity orderEntity = activity.mOrderBack.getOrder();
+                                            double payMoney=orderEntity.getNeedPayMoney();
                                             activity.orderid = orderEntity.getOrder_id();
-                                            activity.showPopWindow(0, activity.orderid);
+                                            activity.showPopWindow(0, activity.orderid,payMoney);
                                             activity.isCommitSuccess = true;
                                         } else {
                                             ToastUtil.showToast(activity, "获取订单返回信息失败");
@@ -194,7 +203,8 @@ public class ConfirmOrderActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         break;
-                    case Constant.DO_PAYMENT:
+                    case Constant.DO_PAYMENT://积分和银联支付（积分直接返回成功并弹出是否查看订单，银联再调用银联webView进行支付）
+                        activity.mOrderSubmit.setEnabled(true);//支付按钮可点击
                         if (activity.type == Constant.SHOP_TYPE_CREDIT) {
                             try {
                                 jsonObject = new JSONObject(json);
@@ -208,7 +218,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
 //                                    ToastUtil.showToast(activity, message);
 //                                    Toast.makeText(activity, message, Toast.LENGTH_LONG).show();
                                     LogUtils.i("wj", "支付成功");
-                                    activity.isToMypay();
+                                    activity.isToMypay();//查看订单
                                 }
                                 activity.mPopupWindow.dismiss();
 
@@ -216,8 +226,27 @@ public class ConfirmOrderActivity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                         } else if (activity.type == Constant.SHOP_TYPE_MONEY) {
-                            activity.payUseUnion(json);
+                            activity.payUseUnion(json);//银联支付
                         }
+                        break;
+                    case Constant.DO_PAYMENT_HUAXIA://华夏支付
+                        activity.mOrderSubmit.setEnabled(true);//支付按钮可点击
+                        try {
+                            jsonObject = new JSONObject(json);
+                            int result = jsonObject.optInt("result");
+                            if(result==1) {
+                                String data = jsonObject.optString("data");
+                                jsonObject = new JSONObject(data);
+                                String url= jsonObject.optString("url");
+                                activity.huaxiaApp(url);
+                            }else{
+                                String message=jsonObject.getString("message");
+                                ToastUtil.showToast(activity, message);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
                         break;
                     case Constant.GETCREDIT:
                         try {
@@ -288,7 +317,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
                     case GET_PAY_TYPE:
                         LogUtils.d("xu", json);
                         break;
-                    case Constant.ADDTO_SHOPCAR:
+                    case Constant.ADDTO_SHOPCAR://添加购物车
                         try {
                             JSONObject jsonObject1 = new JSONObject(json);
                             if (jsonObject1.getInt("result") == 1) {
@@ -300,29 +329,131 @@ public class ConfirmOrderActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         break;
+                    case GET_ORDER_STATUS://查询订单支付状态
+                        Gson gson = new Gson();
+                        OrderDetailsBean orderDetailsBean = gson.fromJson(json, OrderDetailsBean.class);
+                        if (orderDetailsBean.getResult() == 1) {
+                            OrderDetailsBean.DataEntity dataEntity = orderDetailsBean.getData();
+                            if (dataEntity != null) {
+                                OrderDetailsBean.DataEntity.OrderEntity orderEntity = dataEntity.getOrder();
+                                if (orderEntity != null && orderEntity.getOrderStatus() != null) {
+                                    if (orderEntity.getOrderStatus().equals(OrderStatus.getOrderStatusText(OrderStatus.ORDER_PAY_CONFIRM))) {
+                                        activity.isPaySuccess = true;
+                                        ToastUtil.showToast(activity, "华夏支付成功");
+                                    }else{
+                                        activity.isPaySuccess = false;
+                                        ToastUtil.showToast(activity, "华夏支付失败");
+                                    }
+                                }
+                            }
+                        }
+                        break;
                 }
             }
         }
     }
 
+    private boolean toHuaxiaApp=false;//判断是否跳转了华夏app
+    private final static int GET_ORDER_STATUS=100012;//获得订单支付状态
+    @Override
+    protected void onRestart() {//调用华夏银行后返回查询通直接口
+        super.onRestart();
+        if(progressDialog!=null)
+           progressDialog.dismiss();
+        if(toHuaxiaApp){
+            toHuaxiaApp=false;
+            //查询华夏支付结果
+            VolleyUtils.NetUtils(appContext.getRequestQueue(), Constant.baseUrl + Constant.getOrderDetail, new String[]{"orderid"}, new String[]{orderid}, handler, GET_ORDER_STATUS);
+        }
+    }
+
     private Handler handler = new MyHandler(this);
 
+    private void huaxiaApp(String orderUrl){
+        // 判断是否安装了华夏银行客户端
+        if (isInstall(ConfirmOrderActivity.this, "com.rytong.app.bankhx")) {
+            toHuaxiaApp=true;
+            // 启动华夏银行手机版应用
+            Intent intent = new Intent();
+            ComponentName cn = new ComponentName(
+                    "com.rytong.app.bankhx",
+                    "com.rytong.app.bankhx.EMPView");
+
+            intent.setComponent(cn);
+
+            /** 启动时需要传递的参数 */
+            // 订单信息url中包含加密后的订单号和商户号
+            intent.putExtra(
+                    "BUSINESS_URL",
+                    orderUrl);//orderNo=3E9758024956B6C6A1F380649C1F9047&merchantId=5E4A19F6038C06937196BEF9E9F8A9D2
+
+            /** 由于支付成功后需要返回到本应用中，故启动华夏银行客户端时需要将本应用的信息作为参数传递过去 */
+            // 本应用的包名
+            intent.putExtra("ANDROID_PACKAGE", "com.administrator.elwj");
+            // 本应用主 Activity的路径
+            intent.putExtra("ANDROID_STARTNAME",
+                    "com.administrator.elwj.ConfirmOrderActivity");
+
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            ConfirmOrderActivity.this.startActivity(intent);
+
+        }else{
+            Toast.makeText(ConfirmOrderActivity.this, "请下载华夏银行App进行支付", Toast.LENGTH_SHORT).show();
+        }
+    }
     /**
-     * <p>最终的支付操作</p>
+     * 判断是否安装某第三方APP
+     *
+     * @param context
+     * @param packageName
+     * @return
+     */
+    private boolean isInstall(Context context, String packageName) {
+        final PackageManager packageManager = context.getPackageManager();// 获取packagemanager
+        List<PackageInfo> pinfo = packageManager.getInstalledPackages(0);// 获取所有已安装程序的包信息
+        List<String> pName = new ArrayList<String>();// 用于存储所有已安装程序的包名
+        if (pinfo != null) {
+            for (int i = 0; i < pinfo.size(); i++) {
+                String pn = pinfo.get(i).packageName;
+                pName.add(pn);
+            }
+        }
+        return pName.contains(packageName);// 判断pName中是否有目标程序的包名，有TRUE，没有FALSE
+    }
+    /**
+     * <p>华夏和银联支付操作</p>
      */
     private void payment(String orderid) {
+        mOrderSubmit.setEnabled(false);
+            if (type == Constant.SHOP_TYPE_MONEY && isPaySuccess) {
+                ToastUtil.showToast(this, "已经支付成功");
+                mOrderSubmit.setEnabled(true);
+            } else {
+                this.orderid = orderid;
+                VolleyUtils.NetUtils(appContext.getRequestQueue(), Constant.baseUrl + Constant.doPayment_point,
+                        new String[]{"orderid"}, new String[]{orderid}, handler, Constant.DO_PAYMENT);
+
+            }
+    }
+    //华夏支付
+    private void paymentHuaxia(String orderid,double payMoney){
+        if(progressDialog!=null)
+            progressDialog.show();
+        mOrderSubmit.setEnabled(false);
         if (type == Constant.SHOP_TYPE_MONEY && isPaySuccess) {
             ToastUtil.showToast(this, "已经支付成功");
             mOrderSubmit.setEnabled(true);
         } else {
             this.orderid = orderid;
-            VolleyUtils.NetUtils(appContext.getRequestQueue(), Constant.baseUrl + Constant.doPayment_point,
-                    new String[]{"orderid"}, new String[]{orderid}, handler, Constant.DO_PAYMENT);
-
+            payMoney=payMoney*100;//金额以分来计算
+            int pay_money= (int) payMoney;
+            String money=String.valueOf(pay_money);
+            VolleyUtils.NetUtils(appContext.getRequestQueue(), Constant.baseUrl + Constant.doPayment_point_huaxia,
+                    new String[]{"OrderNo","OrderAmt"}, new String[]{orderid,money}, handler, Constant.DO_PAYMENT_HUAXIA);
         }
     }
 
-    private void add2ShopCar() {
+    private void add2ShopCar() {//添加到购物车
         if (dataEntities != null && dataEntities.size() > 0)
             VolleyUtils.NetUtils(appContext.getRequestQueue(), Constant.baseUrl + Constant.shopcarURL, new String[]{"productid", "num"}, new String[]{String.format("%d", dataEntities.get(0).getGoods_id()), dataEntities.get(0).getBuy_count()}, handler, Constant.ADDTO_SHOPCAR);
     }
@@ -331,6 +462,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
      * <p>提交订单，获取订单id</p>
      */
     private void createOrder(String mobile, String num) {
+
         if (type == Constant.SHOP_TYPE_CREDIT) {
             String[] parameter = new String[]{
                     "addressId", "addressId", "addressId",
@@ -380,7 +512,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
             if (userAddress != null) {
                 params = new String[]{
                         "1",
-                        "1004",
+                        payID+"",
                         String.format("%d", userAddress.getAddr_id()),
                         "任意时间",
                         "任意时间",
@@ -388,7 +520,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
             } else {
                 params = new String[]{
                         "1",
-                        "1004",
+                         payID+"",
                         "1000",
                         "任意时间",
                         "任意时间",
@@ -456,11 +588,16 @@ public class ConfirmOrderActivity extends AppCompatActivity {
     }
 
 
+    private double pay_money;//订单金额（从未付款界面条转过来的）
     private void initData() {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(this.getString(R.string.waitNetRequest));
+
         mOrderSubmit = (TextView) findViewById(R.id.confirm_submit_tv);
         Intent intent = getIntent();
         type = intent.getIntExtra("type", Constant.SHOP_TYPE_CREDIT);
         num = intent.getStringExtra("num");
+        payID=intent.getIntExtra("payType",1000);//获得支付方式(从产品详情页传入或从现金消费传入)
         List<Map<String, Object>> waitOrderDatas;
         if (type == Constant.SHOP_TYPE_CREDIT) {//积分支付
             VolleyUtils.NetUtils(appContext.getRequestQueue(), Constant.baseUrl + Constant.getCredit, null, null, handler, Constant.GETCREDIT);
@@ -495,6 +632,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
             } else if (from == Constant.FROMWAITPAY) {
                 mOrderSubmit.setText("支付");
                 waitPayOrder = (Bean_GoodsPayList.Order) intent.getSerializableExtra("orderPay");
+                pay_money=waitPayOrder.getNeedPayMoney();//获得订单金额
                 //此处转化一下数据格式，方便显示
                 dataEntities = new ArrayList<>();
                 if (waitPayOrder != null) {
@@ -600,7 +738,11 @@ public class ConfirmOrderActivity extends AppCompatActivity {
                                     if (from == Constant.FROMWAITPAY) {
                                         mOrderSubmit.setEnabled(false);
                                         orderid = String.valueOf(waitPayOrder.getOrder_id());
-                                        payment(orderid);
+                                        if(payID==1006){//支付类型为华夏支付
+                                            paymentHuaxia(orderid,pay_money);
+                                        }else {
+                                            payment(orderid);
+                                        }
                                     } else {
                                         new AlertDialog.Builder(ConfirmOrderActivity.this).setMessage("请确认订单信息，订单提交后不可修改，是否提交?").setPositiveButton("是", new DialogInterface.OnClickListener() {
                                             @Override
@@ -621,7 +763,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
                                     if (from == Constant.FROMWAITPAY) {
                                         orderid = String.valueOf(waitPayOrder.getOrder_id());
                                         if (isGetcredit) {
-                                            showPopWindow(credit, orderid);
+                                            showPopWindow(credit, orderid,0.0);//从待支付中跳转过来的积分消费
                                         } else {
                                             ToastUtil.showToast(ConfirmOrderActivity.this, "获取用户个人积分失败");
                                         }
@@ -683,13 +825,17 @@ public class ConfirmOrderActivity extends AppCompatActivity {
                             if (from == Constant.FROMWAITPAY) {
                                 mOrderSubmit.setEnabled(false);
                                 orderid = String.valueOf(waitPayOrder.getOrder_id());
-                                payment(orderid);
+                                if(payID==1006){//支付类型为华夏支付
+                                    paymentHuaxia(orderid,pay_money);
+                                }else {
+                                    payment(orderid);
+                                }
                             }
                         } else if (type == Constant.SHOP_TYPE_CREDIT) {
                             if (from == Constant.FROMWAITPAY) {
                                 orderid = String.valueOf(waitPayOrder.getOrder_id());
                                 if (isGetcredit) {
-                                    showPopWindow(credit, orderid);
+                                    showPopWindow(credit, orderid,0.00);//积分消费
                                 } else {
                                     ToastUtil.showToast(ConfirmOrderActivity.this, "获取用户个人积分失败");
                                 }
@@ -722,14 +868,24 @@ public class ConfirmOrderActivity extends AppCompatActivity {
      * <p>显示出确认订单页面的信息,从商品详情页跳转过来</p>
      */
     private void showOrderInfo() {
-        ListAdapterConfirmOrder mOrderAdapter = new ListAdapterConfirmOrder(dataEntities, this, type, imageLoader);
+        ListAdapterConfirmOrder mOrderAdapter;
+        if(payID==1006){//华夏支付
+             mOrderAdapter = new ListAdapterConfirmOrder(dataEntities, this, 3, imageLoader);//type 支付方式
+        }else {
+             mOrderAdapter = new ListAdapterConfirmOrder(dataEntities, this, type, imageLoader);//type 支付方式
+        }
         mOrderList.setAdapter(mOrderAdapter);
         int n = dataEntities.size();
         int count = 0;
         total = 0;
         for (int i = 0; i < n; i++) {
             count += Double.parseDouble(dataEntities.get(i).getBuy_count());
-            total += Double.parseDouble(dataEntities.get(i).getBuy_count()) * dataEntities.get(i).getPrice();
+
+            if(payID==1006) {//华夏支付
+                total += Double.parseDouble(dataEntities.get(i).getBuy_count()) * Double.parseDouble(dataEntities.get(i).getMktprice());
+            }else{
+                total += Double.parseDouble(dataEntities.get(i).getBuy_count()) * dataEntities.get(i).getPrice();
+            }
         }
 //        mOrderNumTV.setText("共"+count+"件商品，合计：");
 //        mOrderTotalPrice.setText(""+total);
@@ -780,7 +936,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
     }
 
 
-    private void showPopWindow(double credit, final String orderid) {
+    private void showPopWindow(double credit, final String orderid, final double payMoney) {
         View view = LayoutInflater.from(this).inflate(R.layout.confirm_order_popwindow, null);
         TextView shouldpaytv = (TextView) view.findViewById(R.id.confirm_popwindow_shouldpoint_tv);
         TextView shouldpaymeasure = (TextView) view.findViewById(R.id.confirm_popwindow_point_tv);
@@ -869,7 +1025,12 @@ public class ConfirmOrderActivity extends AppCompatActivity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                payment(orderid);
+
+                if(payID==1006){//判断是否华夏银行支付
+                    paymentHuaxia(orderid, payMoney);
+                }else {
+                    payment(orderid);//银联支付
+                }
             }
         });
         if (type == Constant.SHOP_TYPE_CREDIT && credit < total) {
@@ -892,7 +1053,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
         getWindow().setAttributes(lp);
     }
 
-    private void payUseUnion(String data) {
+    private void payUseUnion(String data) {//银联支付
         if (data != null && orderid != null) {
             Intent intent1 = new Intent(this, UnionPayWebActivity.class);
             intent1.putExtra("data", data);
