@@ -29,8 +29,8 @@ public class Constant {
 
 //    public static final String baseUrl = "http://180.76.148.177:8088";//ip地址
 
-      public static final String baseUrl = "http://www.shequchina.cn/javamall";//ip地址
-      //  public static final String baseUrl = "http://192.168.1.114:8080/mall";//ip地址
+     // public static final String baseUrl = "http://www.shequchina.cn/javamall";//ip地址
+        public static final String baseUrl = "http://192.168.1.114:8080/mall";//ip地址
 
 
     public static final String getAdImg = "/api/mobile/fin!getNonBannerList.do";//精致生活和金融常识的轮播

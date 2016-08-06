@@ -185,6 +185,7 @@ public class ListAdapterMyMoneyPay extends BaseAdapter {
             vh = (ViewHolder) convertView.getTag();
         }
         final Bean_GoodsPayList.Order bean = lists.get(position);
+        Log.i("Allen","支付方式"+bean.getPayment_id());
         java.util.List<Map<String, Object>> list = bean.getItemList();
         vh.goods_state.setText(bean.getPayStatus());
         LogUtils.e("List", list.toString());
@@ -318,6 +319,7 @@ public class ListAdapterMyMoneyPay extends BaseAdapter {
         vh.youfei_num.setText(String.valueOf(bean.getShipping_amount()));
         ListAdapterInSet adapter = new ListAdapterInSet();
         adapter.addData(list, context, bean.getPayment_name());
+        Log.i("Allen",bean.getPayment_name());
         vh.listview.setAdapter(adapter);
         setListViewHeightBasedOnChildren(vh.listview);
         vh.more.setOnClickListener(new View.OnClickListener() {

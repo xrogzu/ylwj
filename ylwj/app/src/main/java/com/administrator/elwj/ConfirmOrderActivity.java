@@ -348,6 +348,20 @@ public class ConfirmOrderActivity extends AppCompatActivity {
                             }
                         }
                         break;
+                    case Constant.CART_CLEAN://清空购物车成功
+
+                        JSONObject object = null;
+                        try {
+                            object = new JSONObject((String) msg.obj);
+                            String result = object.getString("result");
+                            if (result.equals("1")) {
+                                VolleyUtils.NetUtils(activity.appContext.getRequestQueue(), Constant.baseUrl + Constant.shopcarURL, new String[]{"productid", "num"}, new String[]{String.format("%d", activity.dataEntities.get(0).getGoods_id()), activity.dataEntities.get(0).getBuy_count()}, activity.handler, Constant.ADDTO_SHOPCAR);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        break;
                 }
             }
         }
@@ -383,9 +397,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
 
             /** 启动时需要传递的参数 */
             // 订单信息url中包含加密后的订单号和商户号
-            intent.putExtra(
-                    "BUSINESS_URL",
-                    orderUrl);//orderNo=3E9758024956B6C6A1F380649C1F9047&merchantId=5E4A19F6038C06937196BEF9E9F8A9D2
+            intent.putExtra("BUSINESS_URL", orderUrl);//orderNo=3E9758024956B6C6A1F380649C1F9047&merchantId=5E4A19F6038C06937196BEF9E9F8A9D2
 
             /** 由于支付成功后需要返回到本应用中，故启动华夏银行客户端时需要将本应用的信息作为参数传递过去 */
             // 本应用的包名
@@ -398,6 +410,8 @@ public class ConfirmOrderActivity extends AppCompatActivity {
             ConfirmOrderActivity.this.startActivity(intent);
 
         }else{
+            if(progressDialog!=null)
+                progressDialog.dismiss();
             Toast.makeText(ConfirmOrderActivity.this, "请下载华夏银行App进行支付", Toast.LENGTH_SHORT).show();
         }
     }
@@ -454,8 +468,10 @@ public class ConfirmOrderActivity extends AppCompatActivity {
     }
 
     private void add2ShopCar() {//添加到购物车
+
         if (dataEntities != null && dataEntities.size() > 0)
-            VolleyUtils.NetUtils(appContext.getRequestQueue(), Constant.baseUrl + Constant.shopcarURL, new String[]{"productid", "num"}, new String[]{String.format("%d", dataEntities.get(0).getGoods_id()), dataEntities.get(0).getBuy_count()}, handler, Constant.ADDTO_SHOPCAR);
+            //先清空购物车
+            VolleyUtils.NetUtils(appContext.getRequestQueue(), Constant.baseUrl + Constant.cartClean, null, null, handler, Constant.CART_CLEAN);
     }
 
     /**

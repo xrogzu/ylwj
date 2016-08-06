@@ -815,12 +815,12 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
         huaxia_pay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                choose_yinlian.setImageResource(R.mipmap.no_choose);
-//                choose_huaxia.setImageResource(R.mipmap.choose);
-//                payType=HUAXIA_PAY;
-//                count = Integer.parseInt(popCountEditText.getText().toString().trim());
-//                popPriceTV.setText("￥" +  Integer.valueOf(beanDetails.getMktprice())*count+"");//显示华夏价
-                ToastUtil.showToast(Interalshop_detailsactivity.this,"华夏支付开发中");
+                choose_yinlian.setImageResource(R.mipmap.no_choose);
+                choose_huaxia.setImageResource(R.mipmap.choose);
+                payType=HUAXIA_PAY;
+                count = Integer.parseInt(popCountEditText.getText().toString().trim());
+                popPriceTV.setText("￥" +  Integer.valueOf(beanDetails.getMktprice())*count+"");//显示华夏价
+//                ToastUtil.showToast(Interalshop_detailsactivity.this,"华夏支付开发中");
             }
         });
         if (beanDetails != null) {
