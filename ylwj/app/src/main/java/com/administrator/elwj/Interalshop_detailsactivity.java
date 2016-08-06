@@ -73,7 +73,7 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
     private ImageButton ib_details_redduce;
     private ImageButton ib_details_add;
     private TextView tv_details_num;
-    private ImageView delivery_img;
+    private ImageView delivery_img,add_details;
     private int num = 1;
     private LinearLayout shuliang;
     private RelativeLayout rl_shopdetails_choosecolor;
@@ -380,8 +380,11 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
                 delivery_detail.setVisibility(View.VISIBLE);
                 delivery_detail.setText(beanDetails.getDelivery_detail());
             }
-            if(!TextUtils.isEmpty(beanDetails.getDelivery_android())){
+            if(!TextUtils.isEmpty(beanDetails.getDelivery_android())){//额外添加的产品详情图片
                 imageLoader.displayImage(beanDetails.getDelivery_android(),delivery_img, options);
+            }
+            if(!TextUtils.isEmpty(beanDetails.getBack_certificate())){//额外添加的产品详情图片
+                imageLoader.displayImage(beanDetails.getBack_certificate(),add_details, options);
             }
             if (beanDetails != null)
                 removePic = beanDetails.getBig();
@@ -393,8 +396,11 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
                 delivery_detail.setVisibility(View.VISIBLE);
                 delivery_detail.setText(beanDetails.getDelivery_detail());
             }
-            if(!TextUtils.isEmpty(beanDetails.getDelivery_android())){
+            if(!TextUtils.isEmpty(beanDetails.getDelivery_android())){//额外添加的产品详情图片
                 imageLoader.displayImage(beanDetails.getDelivery_android(),delivery_img, options);
+            }
+            if(!TextUtils.isEmpty(beanDetails.getBack_certificate())){//额外添加的产品详情图片
+                imageLoader.displayImage(beanDetails.getBack_certificate(),add_details, options);
             }
             if (beanDetails != null)
                 removePic = beanDetails.getBig();
@@ -444,6 +450,7 @@ public class Interalshop_detailsactivity extends AppCompatActivity implements Vi
      * 不需要数据，原始的view
      */
     private void initPriView() {
+        add_details= (ImageView) findViewById(R.id.add_details);
         delivery_img= (ImageView) findViewById(R.id.delivery_img);
         delivery_detail= (TextView) findViewById(R.id.delivery_detail);
         song_jifen = (LinearLayout) findViewById(R.id.song);

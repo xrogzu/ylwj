@@ -127,6 +127,20 @@ public class BeanDetails_Banner {
         private String unit;
         private String delivery_android;//Android 图片展示邮寄方式
         private String delivery_detail;//邮寄方式描述
+        private String back_certificate;//详情页添加图片
+
+        public void setPrice(double price) {
+            this.price = price;
+        }
+
+        public String getBack_certificate() {
+            return back_certificate;
+        }
+
+        public void setBack_certificate(String back_certificate) {
+            this.back_certificate = back_certificate;
+        }
+
         public String getDelivery_android() {
             return delivery_android;
         }

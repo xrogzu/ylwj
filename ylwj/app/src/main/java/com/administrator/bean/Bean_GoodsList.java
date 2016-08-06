@@ -104,7 +104,7 @@ public class Bean_GoodsList {
     public static class DataEntity implements Serializable{
         private String delivery_detail;//邮寄方式描述
         private String delivery_android;//Android 图片展示邮寄方式
-
+        private String back_certificate;//额外添加的详情图片
 
 
         private int goods_id;
@@ -164,6 +164,14 @@ public class Bean_GoodsList {
         private String is_pack;
         private String thumbnail;
         private String big;
+
+        public String getBack_certificate() {
+            return back_certificate;
+        }
+
+        public void setBack_certificate(String back_certificate) {
+            this.back_certificate = back_certificate;
+        }
 
         public String getDelivery_android() {
             return delivery_android;
